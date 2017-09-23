@@ -21,6 +21,11 @@
 		6DEF23C21B96CC2600BCE792 /* Matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DEF23BC1B96CC2600BCE792 /* Matrix.cpp */; };
 		6DEF23C31B96CC2600BCE792 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DEF23BE1B96CC2600BCE792 /* ShaderProgram.cpp */; };
 		6DEF23C41B96CC2600BCE792 /* vertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 6DEF23C01B96CC2600BCE792 /* vertex.glsl */; };
+		B10B3CF91F7406930045AA09 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B10B3CF81F7406930045AA09 /* GameObject.cpp */; };
+		B16471251F76D4CC00FF9A62 /* mario.png in Resources */ = {isa = PBXBuildFile; fileRef = B16471241F76D4CB00FF9A62 /* mario.png */; };
+		B16471271F76D7DB00FF9A62 /* emoji.png in Resources */ = {isa = PBXBuildFile; fileRef = B16471261F76D7DB00FF9A62 /* emoji.png */; };
+		B16471291F76DFA300FF9A62 /* squidward.png in Resources */ = {isa = PBXBuildFile; fileRef = B16471281F76DFA300FF9A62 /* squidward.png */; };
+		B164712B1F76E21E00FF9A62 /* smiley.png in Resources */ = {isa = PBXBuildFile; fileRef = B164712A1F76E21E00FF9A62 /* smiley.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +52,12 @@
 		6DEF23BE1B96CC2600BCE792 /* ShaderProgram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderProgram.cpp; sourceTree = "<group>"; };
 		6DEF23BF1B96CC2600BCE792 /* ShaderProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderProgram.h; sourceTree = "<group>"; };
 		6DEF23C01B96CC2600BCE792 /* vertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vertex.glsl; sourceTree = "<group>"; };
+		B10B3CF71F7404800045AA09 /* GameObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameObject.h; path = GameObject/GameObject.h; sourceTree = "<group>"; };
+		B10B3CF81F7406930045AA09 /* GameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameObject.cpp; path = GameObject/GameObject.cpp; sourceTree = "<group>"; };
+		B16471241F76D4CB00FF9A62 /* mario.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mario.png; path = NYUCodebase/mario.png; sourceTree = SOURCE_ROOT; };
+		B16471261F76D7DB00FF9A62 /* emoji.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = emoji.png; path = NYUCodebase/emoji.png; sourceTree = SOURCE_ROOT; };
+		B16471281F76DFA300FF9A62 /* squidward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = squidward.png; sourceTree = "<group>"; };
+		B164712A1F76E21E00FF9A62 /* smiley.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smiley.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +127,10 @@
 		6D5A86B419AE5C710066C1FD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B164712A1F76E21E00FF9A62 /* smiley.png */,
+				B16471281F76DFA300FF9A62 /* squidward.png */,
+				B16471261F76D7DB00FF9A62 /* emoji.png */,
+				B16471241F76D4CB00FF9A62 /* mario.png */,
 				6D5A86C519AE5C710066C1FD /* Images.xcassets */,
 				6D5A86B519AE5C710066C1FD /* NYUCodebase-Info.plist */,
 				6D5A86B619AE5C710066C1FD /* InfoPlist.strings */,
@@ -144,6 +159,7 @@
 		6D5A86E119AE5CAA0066C1FD /* Code */ = {
 			isa = PBXGroup;
 			children = (
+				B10B3CF61F7404600045AA09 /* GameObject */,
 				6DEF23BB1B96CC2600BCE792 /* fragment.glsl */,
 				6DE9D2F01BA6AB8C002D599C /* fragment_textured.glsl */,
 				6DC707691BA7273500225B7D /* vertex_textured.glsl */,
@@ -155,6 +171,15 @@
 				6D5A86B919AE5C710066C1FD /* main.cpp */,
 			);
 			name = Code;
+			sourceTree = "<group>";
+		};
+		B10B3CF61F7404600045AA09 /* GameObject */ = {
+			isa = PBXGroup;
+			children = (
+				B10B3CF71F7404800045AA09 /* GameObject.h */,
+				B10B3CF81F7406930045AA09 /* GameObject.cpp */,
+			);
+			name = GameObject;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,10 +235,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B16471291F76DFA300FF9A62 /* squidward.png in Resources */,
 				6D5A86B819AE5C710066C1FD /* InfoPlist.strings in Resources */,
 				6DEF23C11B96CC2600BCE792 /* fragment.glsl in Resources */,
+				B164712B1F76E21E00FF9A62 /* smiley.png in Resources */,
 				6DE9D2F11BA6AB8C002D599C /* fragment_textured.glsl in Resources */,
 				6D5A86C619AE5C710066C1FD /* Images.xcassets in Resources */,
+				B16471251F76D4CC00FF9A62 /* mario.png in Resources */,
+				B16471271F76D7DB00FF9A62 /* emoji.png in Resources */,
 				6D5A86BE19AE5C710066C1FD /* Credits.rtf in Resources */,
 				6DEF23C41B96CC2600BCE792 /* vertex.glsl in Resources */,
 				6DC7076A1BA7273500225B7D /* vertex_textured.glsl in Resources */,
@@ -227,6 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B10B3CF91F7406930045AA09 /* GameObject.cpp in Sources */,
 				6DEF23C31B96CC2600BCE792 /* ShaderProgram.cpp in Sources */,
 				6DEF23C21B96CC2600BCE792 /* Matrix.cpp in Sources */,
 				6D5A86BA19AE5C710066C1FD /* main.cpp in Sources */,

@@ -3,10 +3,10 @@
 #include <math.h>
 
 Matrix::Matrix() {
-    identity();
+    Identity();
 }
 
-void Matrix::identity() {
+void Matrix::Identity() {
     m[0][0] = 1.0;
     m[1][0] = 0.0;
     m[2][0] = 0.0;
@@ -28,7 +28,7 @@ void Matrix::identity() {
     m[3][3] = 1.0;
 }
 
-Matrix Matrix::inverse() const {
+Matrix Matrix::Inverse() const {
     float m00 = m[0][0], m01 = m[0][1], m02 = m[0][2], m03 = m[0][3];
     float m10 = m[1][0], m11 = m[1][1], m12 = m[1][2], m13 = m[1][3];
     float m20 = m[2][0], m21 = m[2][1], m22 = m[2][2], m23 = m[2][3];
@@ -128,7 +128,7 @@ Matrix Matrix::operator * (const Matrix &m2) const {
     return r;
 }
 
-void Matrix::setPosition(float x, float y, float z) {
+void Matrix::SetPosition(float x, float y, float z) {
     m[3][0] = x;
     m[3][1] = y;
     m[3][2] = z;
@@ -136,15 +136,15 @@ void Matrix::setPosition(float x, float y, float z) {
 
 void Matrix::Translate(float x, float y, float z) {
     Matrix transMatrix;
-    transMatrix.setPosition(x, y, z);
+    transMatrix.SetPosition(x, y, z);
     (*this) = transMatrix * (*this);
 }
 
-void Matrix::setRotation(float rotation) {
-    setRoll(rotation);
+void Matrix::SetRotation(float rotation) {
+    SetRoll(rotation);
 }
 
-void Matrix::setRoll(float roll) {
+void Matrix::SetRoll(float roll) {
     m[0][0] = cos(roll);
     m[1][0] = -sin(roll);
     m[0][1] = sin(roll);
@@ -157,18 +157,18 @@ void Matrix::Rotate(float rotation) {
 
 void Matrix::Roll(float roll) {
     Matrix rollMatrix;
-    rollMatrix.setRoll(roll);
+    rollMatrix.SetRoll(roll);
     (*this) = rollMatrix * (*this);
 }
 
-void Matrix::setPitch(float pitch) {
+void Matrix::SetPitch(float pitch) {
     m[1][1] = cos(pitch);
     m[2][1] = -sin(pitch);
     m[1][2] = sin(pitch);
     m[2][2] = cos(pitch);
 }
 
-void Matrix::setYaw(float yaw) {
+void Matrix::SetYaw(float yaw) {
     m[0][0] = cos(yaw);
     m[2][0] = sin(yaw);
     m[0][2] = -sin(yaw);
@@ -177,17 +177,17 @@ void Matrix::setYaw(float yaw) {
 
 void Matrix::Pitch(float pitch) {
     Matrix pitchMatrix;
-    pitchMatrix.setPitch(pitch);
+    pitchMatrix.SetPitch(pitch);
     (*this) = pitchMatrix * (*this);
 }
 
 void Matrix::Yaw(float yaw) {
     Matrix yawMatrix;
-    yawMatrix.setYaw(yaw);
+    yawMatrix.SetYaw(yaw);
     (*this) = yawMatrix * (*this);
 }
 
-void Matrix::setScale(float x, float y, float z) {
+void Matrix::SetScale(float x, float y, float z) {
     m[0][0] = x;
     m[1][1] = y;
     m[2][2] = z;
@@ -195,11 +195,11 @@ void Matrix::setScale(float x, float y, float z) {
 
 void Matrix::Scale(float x, float y, float z) {
     Matrix scaleMatrix;
-    scaleMatrix.setScale(x, y, z);
+    scaleMatrix.SetScale(x, y, z);
     (*this) = scaleMatrix * (*this);
 }
 
-void Matrix::setOrthoProjection(float left, float right, float bottom, float top, float zNear, float zFar) {
+void Matrix::SetOrthoProjection(float left, float right, float bottom, float top, float zNear, float zFar) {
     m[0][0] = 2.0f/(right-left);
     m[1][1] = 2.0f/(top-bottom);
     m[2][2] = -2.0f/(zFar-zNear);
@@ -209,7 +209,7 @@ void Matrix::setOrthoProjection(float left, float right, float bottom, float top
     m[3][2] = -((zFar+zNear)/(zFar-zNear));
 }
 
-void Matrix::setPerspectiveProjection(float fov, float aspect, float zNear, float zFar) {    
+void Matrix::SetPerspectiveProjection(float fov, float aspect, float zNear, float zFar) {
     m[0][0] = 1.0f/tanf(fov/2.0)/aspect;
     m[1][1] = 1.0f/tanf(fov/2.0);
     m[2][2] = (zFar+zNear)/(zNear-zFar);

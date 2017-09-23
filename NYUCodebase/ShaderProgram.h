@@ -15,18 +15,16 @@ class ShaderProgram {
         ShaderProgram(const char *vertexShaderFile, const char *fragmentShaderFile);
         ~ShaderProgram();
     
-        void setModelMatrix(const Matrix &matrix);
-        void setProjectionMatrix(const Matrix &matrix);
-        void setViewMatrix(const Matrix &matrix);
+        void SetModelviewMatrix(const Matrix &matrix);
+        void SetProjectionMatrix(const Matrix &matrix);
     
-        GLuint loadShaderFromString(const std::string &shaderContents, GLenum type);
-        GLuint loadShaderFromFile(const std::string &shaderFile, GLenum type);
+        GLuint LoadShaderFromString(const std::string &shaderContents, GLenum type);
+        GLuint LoadShaderFromFile(const std::string &shaderFile, GLenum type);
     
         GLuint programID;
     
         GLuint projectionMatrixUniform;
-        GLuint modelMatrixUniform;
-        GLuint viewMatrixUniform;
+        GLuint modelviewMatrixUniform;
     
         GLuint positionAttribute;
         GLuint texCoordAttribute;

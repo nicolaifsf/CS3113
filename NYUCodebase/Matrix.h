@@ -11,9 +11,9 @@ class Matrix {
             float ml[16];
         };
     
-        void identity();
+        void Identity();
         Matrix operator * (const Matrix &m2) const;
-        Matrix inverse() const;
+        Matrix Inverse() const;
     
         void Translate(float x, float y, float z);
         void Scale(float x, float y, float z);
@@ -22,13 +22,13 @@ class Matrix {
         void Pitch(float pitch);
         void Yaw(float yaw);
     
-        void setPosition(float x, float y, float z);
-        void setScale(float x, float y, float z);
-        void setRotation(float rotation);
-        void setRoll(float roll);
-        void setPitch(float pitch);
-        void setYaw(float yaw);
+        void SetPosition(float x, float y, float z);
+        void SetScale(float x, float y, float z);
+        void SetRotation(float rotation);
+        void SetRoll(float roll);
+        void SetPitch(float pitch);
+        void SetYaw(float yaw);
 
-        void setOrthoProjection(float left, float right, float bottom, float top, float zNear, float zFar);
-        void setPerspectiveProjection(float fov, float aspect, float zNear, float zFar);
+        void SetOrthoProjection(float left, float right, float bottom, float top, float zNear, float zFar);
+        void SetPerspectiveProjection(float fov, float aspect, float zNear, float zFar);
 };
