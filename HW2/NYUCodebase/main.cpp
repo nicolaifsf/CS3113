@@ -14,7 +14,9 @@
 
 int main(int argc, char *argv[])
 {
+	// Create our Game
     Game game(640, 360, "Pong");
+
     ShaderProgram program(RESOURCE_FOLDER"vertex_textured.glsl", RESOURCE_FOLDER"fragment_textured.glsl");
 
 	SDL_Event event;
@@ -25,13 +27,17 @@ int main(int argc, char *argv[])
 				done = true;
 			}
 		}
+		// Handle User Input
 		game.EventUpdate();
         
+        // Any other Game Updates
         game.Update();
         
+        // Redraw our Game
 		game.Redraw(program);
 	}
 
+	// Cleanup our Game
 	game.Cleanup();
 	SDL_Quit();
 	return 0;

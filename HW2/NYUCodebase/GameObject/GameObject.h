@@ -5,15 +5,19 @@
 #ifndef GameObject_h
 #define GameObject_h
 
+// Representation of an Entity or GameObject in our Game
 class GameObject {
 public:
 	// Initialize a game object giving it the texture ID
     GameObject(std::string objectID, Texture* texture);
     
+    // Scale a GameObject's texture with multipliers
     void Scale(float xWidth, float yHeight, float zDepth);
     
+    // Set the velocity of a GameObject
     void SetVelocity(float velocity);
 
+    // Get the ID of the GameObject
     std::string getObjectID() const;
 
     // Move the game object horizontally
@@ -33,30 +37,40 @@ public:
 
 	// Moves the game object to it's relative down
     void moveDown(float units);
-    
+
+    // Draw the GameObject
     void draw(ShaderProgram& program);
 
+    // Set the Game Object's position
     void SetPosition(float x, float y);
 
+    // Set the Game Object's x direction
     void SetXDirection(float x_dir);
 
+    // Set the Game Object's y direction
     void SetYDirection(float y_dir);
 
+    // Get the current X Position of the Game Object
     float getXPosition();
 
+    // Get the current Y Position of the Game Object
     float getYPosition();
 
+    // Get the Height of the Game Object
     float getHeight();
+
+    // Get the Width of the Game Object
     float getWidth();
 
+    // Get the X Direction the Game Object is traveling in
     float GetXDirection();
 
+    // Get the Y Direction the Game Object is traveling in
     float GetYDirection();
 
 
 private:
     Matrix projectionMatrix;
-    Matrix modelviewMatrix;
 	GLuint textureID;
     std::string objectID;
 

@@ -12,7 +12,7 @@ GameObject::GameObject(std::string objectID, Texture* texture) : objectID(object
 
 
 void GameObject::SetVelocity(float velocity) {
-    velocity = velocity;
+    this->velocity = velocity;
 }
 
 std::string GameObject::getObjectID() const {
@@ -20,11 +20,11 @@ std::string GameObject::getObjectID() const {
 }
 
 void GameObject::moveHorizontal(float units) {
-    x += units;
+    this->x += units;
 }
 
 void GameObject::moveVertical(float units) {
-    y += units;
+    this->y += units;
 }
 
 void GameObject::moveLeft(float units) {
@@ -44,23 +44,23 @@ void GameObject::moveDown(float units){
 }
 
 void GameObject::SetPosition(float xPos, float yPos) {
-    x = xPos;
-    y = yPos;
+    this->x = xPos;
+    this->y = yPos;
 }
 
 void GameObject::Scale(float xWidth, float yHeight, float zDepth) {
-    width *= xWidth;
-    height *= yHeight;
+    this->width *= xWidth;
+    this->height *= yHeight;
 }
 
 void GameObject::draw(ShaderProgram& program) {
-    Matrix tMatrix;
-    tMatrix.Identity();
-    tMatrix.SetPosition(x,y, 1.0);
-    tMatrix.Scale(width, height, 1.0);
+    Matrix modelView;
+    modelView.Identity();
+    modelView.SetPosition(x,y, 1.0);
+    modelView.Scale(width, height, 1.0);
     glUseProgram(program.programID);
 
-    program.SetModelviewMatrix(tMatrix);
+    program.SetModelviewMatrix(modelView);
     program.SetProjectionMatrix(projectionMatrix);
     
     glBindTexture(GL_TEXTURE_2D, textureID);
@@ -96,11 +96,11 @@ float GameObject::getWidth() {
 }
 
 void GameObject::SetXDirection(float x_dir) {
-    direction_x = x_dir;
+    this->direction_x = x_dir;
 }
 
 void GameObject::SetYDirection(float y_dir) {
-    direction_y = y_dir;
+    this->direction_y = y_dir;
 }
 
 float GameObject::GetXDirection() {

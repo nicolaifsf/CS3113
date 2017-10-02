@@ -18,6 +18,7 @@
 Texture::Texture(std::string filePath) : filePath(filePath) {
 	int w, h, comp;
 	unsigned char* image = stbi_load(filePath.c_str(), &w, &h, &comp, STBI_rgb_alpha);	
+	// If we fail to load the image, then assert(false)
 	if (image == NULL) {
 		std::cerr << "Unable to load image: " << filePath << std::endl;
 		assert(false);
@@ -32,9 +33,9 @@ Texture::Texture(std::string filePath) : filePath(filePath) {
     
     stbi_image_free(image);
     textureID = retTexture;
-    width = w;
-    height = h;
-    comp = comp;
+    this->width = w;
+    this->height = h;
+    this->comp = comp;
 }
 
 GLuint Texture::getTextureID() const {
