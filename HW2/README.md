@@ -10,3 +10,7 @@ Red vs Blue
 - Use 'Up' and 'Down' arrow keys to move up and down
 
 # Screen flashes the scorer's color
+
+## NOTE:
+Runs in the XCODE IDE only (with cmd+r). There seems to be an issue with the generated .app and detecting the path to the resources directory!
+
