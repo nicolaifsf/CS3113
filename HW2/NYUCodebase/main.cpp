@@ -32,6 +32,7 @@ int main(int argc, char *argv[])
 		game.Redraw(program);
 	}
 
+	game.Cleanup();
 	SDL_Quit();
 	return 0;
 }

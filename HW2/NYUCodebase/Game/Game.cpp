@@ -255,3 +255,24 @@ bool Game::addObject(GameObject* object) {
     }
     return false;
 }
+
+// Cleanup function that removes all GameObjects and loaded textures.
+void Game::Cleanup() {
+    for(std::unordered_map<std::string, Texture*>::iterator iter = loadedTextures.begin(); iter != loadedTextures.end();) {
+        if(iter->second != nullptr) {
+            delete iter->second;
+        }
+        // .erase() returns the iterator 1 past the deleted element (thereby iterating to the next element
+        iter = loadedTextures.erase(iter);
+    }
+    for(std::unordered_map<std::string, GameObject*>::iterator iter = loadedObjects.begin(); iter != loadedObjects.end();) {
+        if(iter->second != nullptr) {
+            delete iter->second;
+        }
+        iter = loadedObjects.erase(iter);
+    }	
+}
+
+Game::~Game() {
+	Cleanup();
+}

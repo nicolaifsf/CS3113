@@ -28,6 +28,7 @@
 class Game {
 public:
 	Game(int width, int height, std::string windowName);
+    ~Game();
     Texture* LoadTexture(std::string filePath);
     bool addObject(GameObject* object);
     // Creates a new object and saves it to the game
@@ -36,6 +37,7 @@ public:
     void Redraw(ShaderProgram& program);
     void EventUpdate();
     GameObject* GetObject(std::string name);
+    void Cleanup();
 private:
     void updateElapsedTime();
     void PreSetup(std::string windowName);
