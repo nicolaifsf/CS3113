@@ -63,14 +63,14 @@ bool rightHitWall(Entity* obj) {
     Vector3 objectPosition = obj->getPosition();
     Vector3 objectSize = obj->getSize();
     float rightOfObject = objectPosition.getX() + objectSize.getX()/2.0f;
-    return rightOfObject > 3.55f;
+    return rightOfObject > 3.50f;
 }
 
 bool leftHitWall(Entity* obj) {
     Vector3 objectPosition = obj->getPosition();
     Vector3 objectSize = obj->getSize();
     float leftOfObject = objectPosition.getX() - objectSize.getX()/2.0f;
-    return leftOfObject < -3.55f;
+    return leftOfObject < -3.50f;
 }
 
 bool didHitWall(Entity* obj) {
@@ -222,7 +222,7 @@ void GameState::EventUpdate(float elapsedTime) {
     if(keys[SDL_SCANCODE_LEFT]) {
         // Ensure the Player is still on screen
 
-        if (player != nullptr && playerPos.getX() - playerSz.getX()/2.0f > -3.55f) {
+        if (player != nullptr && playerPos.getX() - playerSz.getX()/2.0f > -3.50f) {
             player->moveHorizontal(-m_x_pos);
         }
     }
@@ -230,7 +230,7 @@ void GameState::EventUpdate(float elapsedTime) {
     // Player Movement right
     if(keys[SDL_SCANCODE_RIGHT]) {
         // Ensure player remains on screen
-        if (player != nullptr && playerPos.getX() + playerSz.getX()/2.0f < 3.55f) {
+        if (player != nullptr && playerPos.getX() + playerSz.getX()/2.0f < 3.50f) {
             player->moveHorizontal(m_x_pos);
         }
     }
