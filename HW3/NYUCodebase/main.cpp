@@ -1,7 +1,5 @@
 #include "ShaderProgram.h"
 #include "Matrix.h"
-#include "GameObject/GameObject.h"
-
 #include<iostream>
 
 #ifdef _WINDOWS
@@ -15,31 +13,36 @@
 int main(int argc, char *argv[])
 {
 	// Create our Game
-    Game game(1080, 720, "Space Invaders");
-
+    Game* game = new Game();
+    float lastFrameTicks = (float) SDL_GetTicks()/1000.0f;
+    float elapsedTime = 0.0f;
     ShaderProgram program(RESOURCE_FOLDER"vertex_textured.glsl", RESOURCE_FOLDER"fragment_textured.glsl");
 
 	SDL_Event event;
 	bool done = false;
 	while (!done) {
+        float ticks = (float)SDL_GetTicks()/1000.0f;
+        elapsedTime = ticks - lastFrameTicks;
+        lastFrameTicks = ticks;
+        
 		while (SDL_PollEvent(&event)) {
 			if (event.type == SDL_QUIT || event.type == SDL_WINDOWEVENT_CLOSE) {
 				done = true;
 			}
-            game.InputEventUpdate(event);
+            game->EventInput(event);
 		}
 		// Handle User Input
-        game.EventUpdate();
-        
+        game->PollInput(elapsedTime);
         // Any other Game Updates
-        game.Update();
+        game->Update(elapsedTime);
         
         // Redraw our Game
-		game.Redraw(program);
+        game->Render(program);
+
 	}
 
 	// Cleanup our Game
-	game.Cleanup();
+    game->Cleanup();
 	SDL_Quit();
 	return 0;
 }

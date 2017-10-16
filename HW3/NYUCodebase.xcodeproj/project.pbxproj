@@ -21,19 +21,16 @@
 		6DEF23C21B96CC2600BCE792 /* Matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DEF23BC1B96CC2600BCE792 /* Matrix.cpp */; };
 		6DEF23C31B96CC2600BCE792 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DEF23BE1B96CC2600BCE792 /* ShaderProgram.cpp */; };
 		6DEF23C41B96CC2600BCE792 /* vertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 6DEF23C01B96CC2600BCE792 /* vertex.glsl */; };
-		B10B3CF91F7406930045AA09 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B10B3CF81F7406930045AA09 /* GameObject.cpp */; };
-		B16471251F76D4CC00FF9A62 /* mario.png in Resources */ = {isa = PBXBuildFile; fileRef = B16471241F76D4CB00FF9A62 /* mario.png */; };
-		B16471271F76D7DB00FF9A62 /* emoji.png in Resources */ = {isa = PBXBuildFile; fileRef = B16471261F76D7DB00FF9A62 /* emoji.png */; };
-		B16471291F76DFA300FF9A62 /* squidward.png in Resources */ = {isa = PBXBuildFile; fileRef = B16471281F76DFA300FF9A62 /* squidward.png */; };
-		B164712B1F76E21E00FF9A62 /* smiley.png in Resources */ = {isa = PBXBuildFile; fileRef = B164712A1F76E21E00FF9A62 /* smiley.png */; };
-		B1A66DA51F91AD84009CE834 /* Menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B1A66DA31F91AD84009CE834 /* Menu.cpp */; };
+		B104E8031F93D35B00884DEA /* colony_0.png in Resources */ = {isa = PBXBuildFile; fileRef = B104E8021F93D35900884DEA /* colony_0.png */; };
+		B1900A3A1F93DFA100B26E31 /* sprites_4.png in Resources */ = {isa = PBXBuildFile; fileRef = B1900A391F93DFA100B26E31 /* sprites_4.png */; };
 		B1A66DA91F91B78C009CE834 /* TextUtility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B1A66DA71F91B78C009CE834 /* TextUtility.cpp */; };
 		B1A66DAB1F91BDD5009CE834 /* font1.png in Resources */ = {isa = PBXBuildFile; fileRef = B1A66DAA1F91BDD4009CE834 /* font1.png */; };
 		B1A66DAF1F91E799009CE834 /* SheetSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B1A66DAD1F91E799009CE834 /* SheetSprite.cpp */; };
-		B1ACDEC11F802D3E0042BDAC /* BluePaddle.png in Resources */ = {isa = PBXBuildFile; fileRef = B1ACDEBF1F802D3E0042BDAC /* BluePaddle.png */; };
-		B1ACDEC21F802D3E0042BDAC /* RedPaddle.png in Resources */ = {isa = PBXBuildFile; fileRef = B1ACDEC01F802D3E0042BDAC /* RedPaddle.png */; };
-		B1ACDEC41F8038AC0042BDAC /* Ball.png in Resources */ = {isa = PBXBuildFile; fileRef = B1ACDEC31F8038AC0042BDAC /* Ball.png */; };
-		B1E963B31F798AB200CB7BAF /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B1E963B11F798AB200CB7BAF /* Game.cpp */; };
+		B1A66DB31F93124B009CE834 /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B1A66DB11F93124B009CE834 /* Vector3.cpp */; };
+		B1A66DB71F931370009CE834 /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B1A66DB51F931370009CE834 /* Entity.cpp */; };
+		B1A66DBC1F9328F1009CE834 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B1A66DBA1F9328F1009CE834 /* Game.cpp */; };
+		B1A66DC01F9329D9009CE834 /* GameState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B1A66DBE1F9329D9009CE834 /* GameState.cpp */; };
+		B1A66DC41F932BC9009CE834 /* MainMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B1A66DC21F932BC9009CE834 /* MainMenu.cpp */; };
 		B1E963B71F798B3700CB7BAF /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B1E963B51F798B3700CB7BAF /* Texture.cpp */; };
 /* End PBXBuildFile section */
 
@@ -61,24 +58,23 @@
 		6DEF23BE1B96CC2600BCE792 /* ShaderProgram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderProgram.cpp; sourceTree = "<group>"; };
 		6DEF23BF1B96CC2600BCE792 /* ShaderProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderProgram.h; sourceTree = "<group>"; };
 		6DEF23C01B96CC2600BCE792 /* vertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vertex.glsl; sourceTree = "<group>"; };
-		B10B3CF71F7404800045AA09 /* GameObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameObject.h; path = GameObject/GameObject.h; sourceTree = "<group>"; };
-		B10B3CF81F7406930045AA09 /* GameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameObject.cpp; path = GameObject/GameObject.cpp; sourceTree = "<group>"; };
-		B16471241F76D4CB00FF9A62 /* mario.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mario.png; path = NYUCodebase/mario.png; sourceTree = SOURCE_ROOT; };
-		B16471261F76D7DB00FF9A62 /* emoji.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = emoji.png; path = NYUCodebase/emoji.png; sourceTree = SOURCE_ROOT; };
-		B16471281F76DFA300FF9A62 /* squidward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = squidward.png; sourceTree = "<group>"; };
-		B164712A1F76E21E00FF9A62 /* smiley.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smiley.png; sourceTree = "<group>"; };
-		B1A66DA31F91AD84009CE834 /* Menu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Menu.cpp; sourceTree = "<group>"; };
-		B1A66DA41F91AD84009CE834 /* Menu.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Menu.hpp; sourceTree = "<group>"; };
+		B104E8021F93D35900884DEA /* colony_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colony_0.png; sourceTree = "<group>"; };
+		B1900A391F93DFA100B26E31 /* sprites_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprites_4.png; sourceTree = "<group>"; };
 		B1A66DA71F91B78C009CE834 /* TextUtility.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TextUtility.cpp; sourceTree = "<group>"; };
 		B1A66DA81F91B78C009CE834 /* TextUtility.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TextUtility.hpp; sourceTree = "<group>"; };
 		B1A66DAA1F91BDD4009CE834 /* font1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = font1.png; sourceTree = "<group>"; };
 		B1A66DAD1F91E799009CE834 /* SheetSprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SheetSprite.cpp; sourceTree = "<group>"; };
 		B1A66DAE1F91E799009CE834 /* SheetSprite.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SheetSprite.hpp; sourceTree = "<group>"; };
-		B1ACDEBF1F802D3E0042BDAC /* BluePaddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BluePaddle.png; sourceTree = "<group>"; };
-		B1ACDEC01F802D3E0042BDAC /* RedPaddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedPaddle.png; sourceTree = "<group>"; };
-		B1ACDEC31F8038AC0042BDAC /* Ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ball.png; sourceTree = "<group>"; };
-		B1E963B11F798AB200CB7BAF /* Game.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
-		B1E963B21F798AB200CB7BAF /* Game.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Game.hpp; sourceTree = "<group>"; };
+		B1A66DB11F93124B009CE834 /* Vector3.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vector3.cpp; sourceTree = "<group>"; };
+		B1A66DB21F93124B009CE834 /* Vector3.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Vector3.hpp; sourceTree = "<group>"; };
+		B1A66DB51F931370009CE834 /* Entity.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
+		B1A66DB61F931370009CE834 /* Entity.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Entity.hpp; sourceTree = "<group>"; };
+		B1A66DBA1F9328F1009CE834 /* Game.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
+		B1A66DBB1F9328F1009CE834 /* Game.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Game.hpp; sourceTree = "<group>"; };
+		B1A66DBE1F9329D9009CE834 /* GameState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameState.cpp; sourceTree = "<group>"; };
+		B1A66DBF1F9329D9009CE834 /* GameState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameState.hpp; sourceTree = "<group>"; };
+		B1A66DC21F932BC9009CE834 /* MainMenu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenu.cpp; sourceTree = "<group>"; };
+		B1A66DC31F932BC9009CE834 /* MainMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
 		B1E963B51F798B3700CB7BAF /* Texture.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
 		B1E963B61F798B3700CB7BAF /* Texture.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Texture.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,14 +146,9 @@
 		6D5A86B419AE5C710066C1FD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B1900A391F93DFA100B26E31 /* sprites_4.png */,
+				B104E8021F93D35900884DEA /* colony_0.png */,
 				B1A66DAA1F91BDD4009CE834 /* font1.png */,
-				B1ACDEC31F8038AC0042BDAC /* Ball.png */,
-				B1ACDEBF1F802D3E0042BDAC /* BluePaddle.png */,
-				B1ACDEC01F802D3E0042BDAC /* RedPaddle.png */,
-				B164712A1F76E21E00FF9A62 /* smiley.png */,
-				B16471281F76DFA300FF9A62 /* squidward.png */,
-				B16471261F76D7DB00FF9A62 /* emoji.png */,
-				B16471241F76D4CB00FF9A62 /* mario.png */,
 				6D5A86C519AE5C710066C1FD /* Images.xcassets */,
 				6D5A86B519AE5C710066C1FD /* NYUCodebase-Info.plist */,
 				6D5A86B619AE5C710066C1FD /* InfoPlist.strings */,
@@ -186,12 +177,14 @@
 		6D5A86E119AE5CAA0066C1FD /* Code */ = {
 			isa = PBXGroup;
 			children = (
+				B1A66DC11F932BBA009CE834 /* MainMenu */,
+				B1A66DBD1F9329C7009CE834 /* GameState */,
+				B1A66DB81F9328B8009CE834 /* Game */,
+				B1A66DB41F931361009CE834 /* Entity */,
+				B1A66DB01F9310E3009CE834 /* Vector3 */,
 				B1A66DAC1F91E783009CE834 /* SheetSprite */,
 				B1A66DA61F91B775009CE834 /* Utilities */,
-				B1A66DA21F91AD6B009CE834 /* Menu */,
 				B1E963B41F798B1E00CB7BAF /* Texture */,
-				B1E963B01F798A8900CB7BAF /* Game */,
-				B10B3CF61F7404600045AA09 /* GameObject */,
 				6DEF23BB1B96CC2600BCE792 /* fragment.glsl */,
 				6DE9D2F01BA6AB8C002D599C /* fragment_textured.glsl */,
 				6DC707691BA7273500225B7D /* vertex_textured.glsl */,
@@ -203,24 +196,6 @@
 				6D5A86B919AE5C710066C1FD /* main.cpp */,
 			);
 			name = Code;
-			sourceTree = "<group>";
-		};
-		B10B3CF61F7404600045AA09 /* GameObject */ = {
-			isa = PBXGroup;
-			children = (
-				B10B3CF71F7404800045AA09 /* GameObject.h */,
-				B10B3CF81F7406930045AA09 /* GameObject.cpp */,
-			);
-			name = GameObject;
-			sourceTree = "<group>";
-		};
-		B1A66DA21F91AD6B009CE834 /* Menu */ = {
-			isa = PBXGroup;
-			children = (
-				B1A66DA31F91AD84009CE834 /* Menu.cpp */,
-				B1A66DA41F91AD84009CE834 /* Menu.hpp */,
-			);
-			path = Menu;
 			sourceTree = "<group>";
 		};
 		B1A66DA61F91B775009CE834 /* Utilities */ = {
@@ -241,13 +216,49 @@
 			path = SheetSprite;
 			sourceTree = "<group>";
 		};
-		B1E963B01F798A8900CB7BAF /* Game */ = {
+		B1A66DB01F9310E3009CE834 /* Vector3 */ = {
 			isa = PBXGroup;
 			children = (
-				B1E963B11F798AB200CB7BAF /* Game.cpp */,
-				B1E963B21F798AB200CB7BAF /* Game.hpp */,
+				B1A66DB11F93124B009CE834 /* Vector3.cpp */,
+				B1A66DB21F93124B009CE834 /* Vector3.hpp */,
+			);
+			path = Vector3;
+			sourceTree = "<group>";
+		};
+		B1A66DB41F931361009CE834 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				B1A66DB51F931370009CE834 /* Entity.cpp */,
+				B1A66DB61F931370009CE834 /* Entity.hpp */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		B1A66DB81F9328B8009CE834 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				B1A66DBA1F9328F1009CE834 /* Game.cpp */,
+				B1A66DBB1F9328F1009CE834 /* Game.hpp */,
 			);
 			path = Game;
+			sourceTree = "<group>";
+		};
+		B1A66DBD1F9329C7009CE834 /* GameState */ = {
+			isa = PBXGroup;
+			children = (
+				B1A66DBE1F9329D9009CE834 /* GameState.cpp */,
+				B1A66DBF1F9329D9009CE834 /* GameState.hpp */,
+			);
+			path = GameState;
+			sourceTree = "<group>";
+		};
+		B1A66DC11F932BBA009CE834 /* MainMenu */ = {
+			isa = PBXGroup;
+			children = (
+				B1A66DC21F932BC9009CE834 /* MainMenu.cpp */,
+				B1A66DC31F932BC9009CE834 /* MainMenu.h */,
+			);
+			path = MainMenu;
 			sourceTree = "<group>";
 		};
 		B1E963B41F798B1E00CB7BAF /* Texture */ = {
@@ -312,18 +323,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B16471291F76DFA300FF9A62 /* squidward.png in Resources */,
 				6D5A86B819AE5C710066C1FD /* InfoPlist.strings in Resources */,
+				B104E8031F93D35B00884DEA /* colony_0.png in Resources */,
 				6DEF23C11B96CC2600BCE792 /* fragment.glsl in Resources */,
 				B1A66DAB1F91BDD5009CE834 /* font1.png in Resources */,
-				B164712B1F76E21E00FF9A62 /* smiley.png in Resources */,
 				6DE9D2F11BA6AB8C002D599C /* fragment_textured.glsl in Resources */,
-				B1ACDEC21F802D3E0042BDAC /* RedPaddle.png in Resources */,
+				B1900A3A1F93DFA100B26E31 /* sprites_4.png in Resources */,
 				6D5A86C619AE5C710066C1FD /* Images.xcassets in Resources */,
-				B16471251F76D4CC00FF9A62 /* mario.png in Resources */,
-				B1ACDEC11F802D3E0042BDAC /* BluePaddle.png in Resources */,
-				B16471271F76D7DB00FF9A62 /* emoji.png in Resources */,
-				B1ACDEC41F8038AC0042BDAC /* Ball.png in Resources */,
 				6D5A86BE19AE5C710066C1FD /* Credits.rtf in Resources */,
 				6DEF23C41B96CC2600BCE792 /* vertex.glsl in Resources */,
 				6DC7076A1BA7273500225B7D /* vertex_textured.glsl in Resources */,
@@ -337,15 +343,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B10B3CF91F7406930045AA09 /* GameObject.cpp in Sources */,
 				B1A66DA91F91B78C009CE834 /* TextUtility.cpp in Sources */,
 				6DEF23C31B96CC2600BCE792 /* ShaderProgram.cpp in Sources */,
+				B1A66DBC1F9328F1009CE834 /* Game.cpp in Sources */,
+				B1A66DB71F931370009CE834 /* Entity.cpp in Sources */,
+				B1A66DC41F932BC9009CE834 /* MainMenu.cpp in Sources */,
 				6DEF23C21B96CC2600BCE792 /* Matrix.cpp in Sources */,
 				B1E963B71F798B3700CB7BAF /* Texture.cpp in Sources */,
-				B1A66DA51F91AD84009CE834 /* Menu.cpp in Sources */,
+				B1A66DB31F93124B009CE834 /* Vector3.cpp in Sources */,
+				B1A66DC01F9329D9009CE834 /* GameState.cpp in Sources */,
 				6D5A86BA19AE5C710066C1FD /* main.cpp in Sources */,
 				B1A66DAF1F91E799009CE834 /* SheetSprite.cpp in Sources */,
-				B1E963B31F798AB200CB7BAF /* Game.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
