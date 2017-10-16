@@ -18,15 +18,22 @@
 
 class Game;
 
+// GameState maintains the state of our game
 class GameState {
 public:
     GameState(Game* game);
     ~GameState();
+    // Update - process any movement, check for collisions, check for win or loss
     void Update(float elapsedTime);
+    // Redraw
     void Redraw(ShaderProgram& program);
+    // EventUpdate - Process any polling events
     void EventUpdate(float elapsedTime);
+    // InputEventUpdate - Process any input events
     void InputEventUpdate(SDL_Event& event);
+    // Cleanup
     void Cleanup();
+    // Setup
     void Setup();
 private:
     Game* game;

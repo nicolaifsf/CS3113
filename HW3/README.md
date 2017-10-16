@@ -1,15 +1,13 @@
-# Game of Pong
+# Space Invaders
 
-Red vs Blue
+## Main Menu
+- Press ENTER key to star
 
+## In Game 
+- Move Left and Right with Left and Right keyboard keys
+- Shoot your laser with spacebar
 
-## Red Paddle
-- Use 'W' and 'S' keys to move up and down
-
-## Blue Paddle
-- Use 'Up' and 'Down' arrow keys to move up and down
-
-# Screen flashes the scorer's color
+Game Over or Win takes you back to Main Menu
 
 ## NOTE:
 Runs in the XCODE IDE only (with cmd+r). There seems to be an issue with the generated .app and detecting the path to the resources directory!

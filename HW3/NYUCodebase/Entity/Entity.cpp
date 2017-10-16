@@ -103,6 +103,4 @@ bool Entity::collide(Entity* otherEntity) {
     float bRight= otherPosition.getX() + otherSize.getX()/2.0f;
     return !(myBot > bTop || myTop < bBot || myLeft > bRight || myRight < bLeft);
 }
-void Entity::render(ShaderProgram& program) {
 
-}

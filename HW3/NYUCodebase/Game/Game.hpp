@@ -28,12 +28,19 @@ class Game {
 public:
     Game();
     ~Game();
+    // Any setup required for game
     void Setup();
+    // Process updates
     void Update(float elapsed);
+    // Rerender the window
     void Render(ShaderProgram& program);
+    // Take any polling based input
     void PollInput(float elapsedTime);
+    // Take any event based input
     void EventInput(SDL_Event& event);
+    // Modify the current game mode
     void setGameMode(GameMode mode);
+    // Load a texture in
     Texture* LoadTexture(std::string filePath);
     void Cleanup();
 private:

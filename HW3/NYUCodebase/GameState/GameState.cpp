@@ -185,6 +185,7 @@ void GameState::Update(float elapsedTime) {
             std::cerr << "Game Over!" << std::endl;
             Cleanup();
             game->setGameMode(STATE_MENU);
+            return;
         }
     }
     
@@ -193,6 +194,7 @@ void GameState::Update(float elapsedTime) {
         std::cout << "You win!" << std::endl;
         Cleanup();
         game->setGameMode(STATE_MENU);
+        return;
     }
 }
 
