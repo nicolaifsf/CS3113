@@ -113,16 +113,13 @@ void Entity::draw(ShaderProgram& program, Matrix playerView) {
                     currentScale.getZ());
     glUseProgram(program.programID);
     
-    // :P
+    // Everything with respect to player's view
     modelView = modelView * playerView.Inverse();
 
     program.SetModelviewMatrix(modelView);
     
     Matrix projectionMatrix;
-    // projectionMatrix.SetOrthoProjection(-3.55f, 3.55f, -2.0f, 2.0f, -1.0f, 1.0f);
     projectionMatrix.SetOrthoProjection(-8.875, 8.875, -5.0f, 5.0f, -1.0f, 1.0f);
-    // projectionMatrix.SetOrthoProjection(-88.75f, 88.75f, -50.0f, 50.0f, -1.0f, 1.0f);
-    // projectionMatrix.SetOrthoProjection(-17.75f, 17.75f, -10.0f, 10.0f, -1.0f, 1.0f);
 
     program.SetProjectionMatrix(projectionMatrix);
     

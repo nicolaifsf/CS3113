@@ -21,6 +21,7 @@
 
 class Game;
 
+// NOT USED
 // MainMenu displayed at startup and at end of game
 class MainMenu {
 public:

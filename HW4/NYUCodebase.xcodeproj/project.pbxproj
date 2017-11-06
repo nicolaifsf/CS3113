@@ -22,7 +22,6 @@
 		6DEF23C31B96CC2600BCE792 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DEF23BE1B96CC2600BCE792 /* ShaderProgram.cpp */; };
 		6DEF23C41B96CC2600BCE792 /* vertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 6DEF23C01B96CC2600BCE792 /* vertex.glsl */; };
 		B1A66DA91F91B78C009CE834 /* TextUtility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B1A66DA71F91B78C009CE834 /* TextUtility.cpp */; };
-		B1A66DAB1F91BDD5009CE834 /* font1.png in Resources */ = {isa = PBXBuildFile; fileRef = B1A66DAA1F91BDD4009CE834 /* font1.png */; };
 		B1A66DAF1F91E799009CE834 /* SheetSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B1A66DAD1F91E799009CE834 /* SheetSprite.cpp */; };
 		B1A66DB31F93124B009CE834 /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B1A66DB11F93124B009CE834 /* Vector3.cpp */; };
 		B1A66DB71F931370009CE834 /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B1A66DB51F931370009CE834 /* Entity.cpp */; };
@@ -60,7 +59,6 @@
 		6DEF23C01B96CC2600BCE792 /* vertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vertex.glsl; sourceTree = "<group>"; };
 		B1A66DA71F91B78C009CE834 /* TextUtility.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TextUtility.cpp; sourceTree = "<group>"; };
 		B1A66DA81F91B78C009CE834 /* TextUtility.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TextUtility.hpp; sourceTree = "<group>"; };
-		B1A66DAA1F91BDD4009CE834 /* font1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = font1.png; sourceTree = "<group>"; };
 		B1A66DAD1F91E799009CE834 /* SheetSprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SheetSprite.cpp; sourceTree = "<group>"; };
 		B1A66DAE1F91E799009CE834 /* SheetSprite.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SheetSprite.hpp; sourceTree = "<group>"; };
 		B1A66DB11F93124B009CE834 /* Vector3.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vector3.cpp; sourceTree = "<group>"; };
@@ -148,7 +146,6 @@
 			children = (
 				B1FBB0811FAE42A40083197A /* george_0.png */,
 				B1FBB07F1FAE37700083197A /* JnRTiles.png */,
-				B1A66DAA1F91BDD4009CE834 /* font1.png */,
 				6D5A86C519AE5C710066C1FD /* Images.xcassets */,
 				6D5A86B519AE5C710066C1FD /* NYUCodebase-Info.plist */,
 				6D5A86B619AE5C710066C1FD /* InfoPlist.strings */,
@@ -327,7 +324,6 @@
 				B1FBB0821FAE42A40083197A /* george_0.png in Resources */,
 				6DEF23C11B96CC2600BCE792 /* fragment.glsl in Resources */,
 				B1FBB0801FAE37700083197A /* JnRTiles.png in Resources */,
-				B1A66DAB1F91BDD5009CE834 /* font1.png in Resources */,
 				6DE9D2F11BA6AB8C002D599C /* fragment_textured.glsl in Resources */,
 				6D5A86C619AE5C710066C1FD /* Images.xcassets in Resources */,
 				6D5A86BE19AE5C710066C1FD /* Credits.rtf in Resources */,

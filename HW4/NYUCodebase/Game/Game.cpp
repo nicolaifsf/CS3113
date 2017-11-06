@@ -126,12 +126,11 @@ void Game::Cleanup() {
         }
         iter = loadedTextures.erase(iter);
     }
-//    menu->Cleanup();
-    // delete menu;
-    // menu = nullptr;
-//    gameState->Cleanup();
-//    delete gameState;
-//    gameState = nullptr;
+    if(gameState != nullptr) {
+        gameState->Cleanup();
+        delete gameState;
+        gameState = nullptr;
+    }
 }
 
 

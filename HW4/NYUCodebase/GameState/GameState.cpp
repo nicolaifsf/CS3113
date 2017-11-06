@@ -344,6 +344,7 @@ void GameState::Update(float elapsedTime) {
         if(player->collide(coins[i])) {
             if(player->getCollidedBot() && coins[i]->getCollidedTop()) {
                 delete coins[i];
+                coins[i] = nullptr;
                 coins.erase(coins.begin() + i);
                 continue;
             }
@@ -457,5 +458,17 @@ void GameState::Cleanup() {
     if (player != nullptr) {
         delete player;
         player = nullptr;
+    }
+    for(size_t i = 0; i < coins.size(); ++i) {
+        if(coins[i] != nullptr) {
+            delete coins[i];
+            coins[i] = nullptr;
+        } 
+    }
+    for(size_t i = 0; i < world.size(); ++i) {
+        if(world[i] != nullptr) {
+            delete world[i];
+            world[i] = nullptr;
+        } 
     }
 }

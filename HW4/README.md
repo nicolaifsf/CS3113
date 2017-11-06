@@ -2,7 +2,7 @@
 
 ## Welcome to Purgatory George!
 
-Care to play a game?
+Care to play a game, George?
 
 To be honest, I have been feeling quite lazy as of late...
 
@@ -18,7 +18,7 @@ To capture these souls, jump using SPACE BAR and land on top of their heads!
 
 Obviously, move left and right with the left and right arrow keys. Purgatory is strange in that its very 2D. But you'll get used to it eventually :)
 
-Well. once again. Welcome to purgatory! I do hope you enjoy your stay.
+Well. Once again. Welcome to purgatory! I do hope you enjoy your stay.
 
 
 ## Controls
@@ -31,3 +31,8 @@ You can't lose in this game :D
 ## NOTE:
 Runs in the XCODE IDE only (with cmd+r). There seems to be an issue with the generated .app and detecting the path to the resources directory!
 
+P.S. Most important places to look for someone who is grading this would probably be under "GameState.cpp". Look for the functions "Movement" and "Update". 
+
+Also I decided to go with static/dynamic entities as I was having difficulty with tile mapping.
+
+Cheers! =D

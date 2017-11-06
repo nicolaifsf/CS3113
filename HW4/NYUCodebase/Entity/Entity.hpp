@@ -17,28 +17,41 @@
 
 class Matrix;
 
+// NOT USED RIGHT NOW
 enum EntityType {ENTITY_PLAYER, ENTITY_ENEMY, ENTITY_COIN};
 
 class Entity {
 public:
+    // Constructor for an Entity
     Entity(std::string objectID, SheetSprite sprite);
 
+    // Set the type of an Entity
     void setType(EntityType type);
 
+    // Get the type of the Entity
     EntityType getType();
 
+    // Set the acceleration of entity with x,y and z
     void setAcceleration(float x, float y, float z);
 
+    // Set the acceleration of entity with Vector3
     void setAcceleration(Vector3 acceleration);
 
+    // Get the acceleration of the entity
     Vector3 getAcceleration();
 
+    // Set the entity to be static
     void setStatic(bool stat);
 
+    // Check if the entity is static
     bool isStatic();
-      
+    
+    // Get the scale of the entity
     Vector3 getScale();
+    // Set the scale of the entity
     void setScale(Vector3 newScale);
+    
+    // Set the scale of the entity
     void setScale(float x, float y, float z);
     // get the ID of the entity
     std::string getObjectID() const;
@@ -58,11 +71,17 @@ public:
     void setPosition(float x, float y, float z);
     // Sets the position using a vector3
     void setPosition(Vector3 position);
+    // Get the entity's position
     Vector3 getPosition() const;
+    // Get the entity's velocity
     Vector3 getVelocity() const;
+    // Get the size of the entity
     Vector3 getSize() const;
+    // Get the rotation of the entity
     float getRotation() const;
+    // Set the rotation of the entity
     void setRotation(float newRotation);
+    // Get entity's sheet sprite
     SheetSprite getSprite() const;
     // Set the SheetSprite associated with the entity
     void setSprite(SheetSprite newSprite);
@@ -73,16 +92,25 @@ public:
     // Check for any collisions
     bool collide(Entity* otherEntity);
 
+    // Reset entity's collision flags
     void resetCollisionFlags();
 
+    // Check if top collided
     bool getCollidedTop();
+    // Check if bottom bollided
     bool getCollidedBot();
+    // Check if Left collided
     bool getCollidedLeft();
+    // Check if right collided
     bool getCollidedRight();
 
+    // Set the top collision flag
     void setCollidedTop();
+    // Set the bottom collision flag
     void setCollidedBot();
+    // Set the left collision flag
     void setCollidedLeft();
+    // Set the right collision flag
     void setCollidedRight();
 private:
 
