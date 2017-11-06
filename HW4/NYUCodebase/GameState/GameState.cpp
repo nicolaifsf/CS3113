@@ -321,8 +321,7 @@ void GameState::Movement(Entity* entity, float elapsedTime) {
 }
 
 void GameState::Update(float elapsedTime) {
-    float m_x_pos = elapsedTime * 1.0f;
-    // Refresh 
+    // Refresh
     player->resetCollisionFlags();
     for(size_t i = 0; i < coins.size(); ++i) {
         if(!coins[i]->isStatic()) {
@@ -442,12 +441,10 @@ void GameState::InputEventUpdate(SDL_Event& event) {
         if(event.key.keysym.scancode == SDL_SCANCODE_LEFT) {
             player->setSprite(loadAGeorge(1, game));
             Vector3 playerAcceleration = player->getAcceleration();
-            Vector3 playerVelocity = player->getVelocity();
             player->setAcceleration(0.0f, playerAcceleration.getY(), playerAcceleration.getZ());
         } 
         if(event.key.keysym.scancode == SDL_SCANCODE_RIGHT) {
             player->setSprite(loadAGeorge(3, game));
-            Vector3 playerAcceleration = player->getAcceleration();
             Vector3 playerVelocity = player->getVelocity();
             player->setAcceleration(0.0f, playerVelocity.getY(), playerVelocity.getZ());
         } 
