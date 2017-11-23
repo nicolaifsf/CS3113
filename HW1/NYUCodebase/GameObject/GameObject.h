@@ -33,6 +33,8 @@ public:
     void moveDown(float units);
 
     void draw(ShaderProgram& program);
+
+    void rotate(float x);
 private:
 	Matrix projectionMatrix;
 	Matrix modelviewMatrix;

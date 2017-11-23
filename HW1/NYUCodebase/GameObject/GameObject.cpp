@@ -5,6 +5,10 @@
 //     #include "../stb_image.h"
 // #endif
 
+void GameObject::rotate(float x) {
+    modelviewMatrix.Rotate(x);
+}
+
 GameObject::GameObject(GLuint textureID) : textureID(textureID) {
     projectionMatrix.SetOrthoProjection(-3.55f, 3.55f, -2.0f, 2.0f, -1.0f, 1.0f);
 
