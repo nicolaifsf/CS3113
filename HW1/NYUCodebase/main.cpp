@@ -75,6 +75,7 @@ int main(int argc, char *argv[])
     emojii.moveDown(0.5f);
     squidward.moveLeft(3.0f);
     squidward.moveUp(0.5f);
+    mario.rotate(45.0f);
 
     /**Enable Blending**/
     glEnable(GL_BLEND);
