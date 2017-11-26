@@ -33,6 +33,8 @@ Runs in the XCODE IDE only (with cmd+r). There seems to be an issue with the gen
 
 P.S. Most important places to look for someone who is grading this would probably be under "GameState.cpp". Look for the functions "Movement" and "Update". 
 
+Jumping, landing on an enemy, or getting hit by an enemy all cause sound effects
+
 Also I decided to go with static/dynamic entities as I was having difficulty with tile mapping.
 
 Cheers! =D
