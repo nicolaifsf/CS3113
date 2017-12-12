@@ -35,6 +35,6 @@ P.S. Most important places to look for someone who is grading this would probabl
 
 Jumping, landing on an enemy, or getting hit by an enemy all cause sound effects
 
-Also I decided to go with static/dynamic entities as I was having difficulty with tile mapping.
+Winning and going to the Victory screen makes everything white until you enter another game. (This is on purpose)
 
 Cheers! =D

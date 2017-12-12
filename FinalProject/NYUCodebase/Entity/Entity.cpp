@@ -100,7 +100,7 @@ void Entity::setScale(float x, float y, float z) {
 void Entity::setScale(Vector3 newScale) {
     this->scale = newScale;
 }
-void Entity::draw(ShaderProgram& program, Matrix playerView, Matrix worldView) {
+void Entity::draw(ShaderProgram& program, Matrix playerView) {
     Matrix modelView;
     modelView.Identity();
     Vector3 currentPosition = this->getPosition();
@@ -118,9 +118,6 @@ void Entity::draw(ShaderProgram& program, Matrix playerView, Matrix worldView) {
     
     // Everything with respect to player's view
     modelView = modelView * playerView.Inverse();
-
-    // TODO:
-    modelView = modelView * worldView;
 
     program.SetModelviewMatrix(modelView);
     

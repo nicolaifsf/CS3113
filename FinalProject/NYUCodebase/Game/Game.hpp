@@ -19,11 +19,12 @@
 #include "../MainMenu/MainMenu.h"
 #include "../Vector3/Vector3.hpp"
 
-enum GameMode {STATE_MENU, STATE_GAME_LEVEL_1, STATE_GAME_LEVEL_2, STATE_GAME_LEVEL_3, STATE_QUIT, GAME_OVER};
+enum GameMode {STATE_MENU, STATE_GAME_LEVEL_1, STATE_GAME_LEVEL_2, STATE_GAME_LEVEL_3, STATE_QUIT, GAME_OVER, VICTORY};
 
 class MainMenu;
 class GameOver;
 class GameState;
+class Victory;
 
 class Game {
 public:
@@ -53,5 +54,6 @@ private:
     SDL_Window* displayWindow;
     Vector3 windowDimensions;
     GameOver* gameOver;
+    Victory* victory;
 };
 #endif /* Game_hpp */

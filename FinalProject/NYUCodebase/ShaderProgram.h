@@ -20,6 +20,8 @@ class ShaderProgram {
     
         GLuint LoadShaderFromString(const std::string &shaderContents, GLenum type);
         GLuint LoadShaderFromFile(const std::string &shaderFile, GLenum type);
+
+        void SetSaturation(float saturation);
     
         GLuint programID;
     
@@ -31,4 +33,6 @@ class ShaderProgram {
     
         GLuint vertexShader;
         GLuint fragmentShader;
+
+        GLuint saturationAttribute;
 };

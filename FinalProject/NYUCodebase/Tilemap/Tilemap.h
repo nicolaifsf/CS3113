@@ -10,7 +10,7 @@ class Tilemap {
 public:
     Tilemap(std::vector< std::vector<int> >& map, Texture* texture, int spritesX, int spritesY, float tileSize); 
 
-    void draw(ShaderProgram& program, Matrix playerView, Matrix worldView);
+    void draw(ShaderProgram& program, Matrix playerView, float saturation);
 
 private:
     int levelWidth;

@@ -27,7 +27,7 @@
 
 
 #define SCREEN_SHAKE_SPEED 30.5f
-#define SCREEN_SHAKE_INTENSITY 0.1f
+#define SCREEN_SHAKE_INTENSITY 0.4f
 
 
 using namespace std;
@@ -125,6 +125,7 @@ Mix_Music* initializeMixer() {
 
 GameState::GameState(Game* game) : game(game), music(nullptr), jumpSound(nullptr), player(nullptr), coinSound(nullptr), hurtSound(nullptr), level(nullptr), playerJumped(false) {
     screenShakeValue = 0.0f;
+    saturation = 0.0f;
 }
 
 GameState::~GameState() {
@@ -217,6 +218,7 @@ void GameState::Setup(int levelSelect) {
     jumpSound = Mix_LoadWAV("jump.wav");
     coinSound = Mix_LoadWAV("coin.wav");
     hurtSound = Mix_LoadWAV("hurt.wav");
+    landSound = Mix_LoadWAV("land.wav");
     srand(time(NULL)); 
     
     // parseFile("NYUCodebase.app/Contents/Resources/map1.txt");
@@ -522,7 +524,7 @@ void Move(Entity* entity, float elapsedTime, const vector<vector<int>>& worldMap
     int entityBotY;
     worldToTileCoordinates(position.getX(), 
                            position.getY() - entity->getSize().getY()/2 - SMALL_PEN_RESOLVE_FACTOR, &entityBotX, &entityBotY);
-    cout << worldMap[entityBotY][entityBotX] << endl;
+    // cout << worldMap[entityBotY][entityBotX] << endl;
     if (worldMap[entityBotY][entityBotX] != 0) {
         if(!entity->getCollidedBot()) {
             entity->setCollidedBot();
@@ -698,15 +700,29 @@ void GameState::Update(float elapsedTime) {
     EntityUpdate(player, elapsedTime);
 
 
+    // Shake the screen if jump lands
     static float secspassed = 0.0f;
+    static bool landsoundplayed = false;
     if (playerJumped && player->getCollidedBot()) {
         screenShakeValue += elapsedTime; 
+        if (!landsoundplayed) {
+            Mix_PlayChannel(-1, landSound, 0);
+            landsoundplayed=true;
+        }
         if (secspassed >= .2f) {
             secspassed = 0.0f;
             playerJumped = false;
+            landsoundplayed=false;
         }
         secspassed += elapsedTime;
     }
+
+    // make the tilemap look trippy
+    static float tilesecs = 0.0f;
+    // saturation = mapValue(tilesecs, 0.0f, 1.0f, 0.0f, 1.0f); 
+    saturation = mapValue(sin(tilesecs * 0.4f), 0.0f, 1.0f, 0.0f, 1.0f) ;
+    tilesecs += elapsedTime;
+    // saturation = 1.0f; 
 
     for(size_t i = 0; i < coins.size(); ++i) {
         EntityUpdate(coins[i], elapsedTime);
@@ -749,8 +765,11 @@ void GameState::Update(float elapsedTime) {
     // Check if no more coins
     if(coins.size() == 0) {
         cout << "YOU WIN!" << endl;
+        Cleanup();
+        game->setGameMode(VICTORY);
         glClearColor(255.0f, 255.0f, 255.0f, 0.0f);
         glClear(GL_COLOR_BUFFER_BIT);
+        return;
     }
 
     // Coins AI
@@ -934,21 +953,19 @@ void OldUpdate(float elapsedTime) {
 
 
 void GameState::Redraw(ShaderProgram& program) {
-
-    Matrix worldView;
-    worldView.Identity();
-    worldView.Translate(0.0f, sin(screenShakeValue * SCREEN_SHAKE_SPEED) * SCREEN_SHAKE_INTENSITY, 0.0f);
     Matrix playerView;
     playerView.Identity();
     playerView.SetPosition(player->getPosition().getX(),
                             player->getPosition().getY(),
                             player->getPosition().getZ());
-    level->draw(program, playerView, worldView);
+    playerView.Translate(0.0f, sin(screenShakeValue * SCREEN_SHAKE_SPEED) * SCREEN_SHAKE_INTENSITY, 0.0f);
+
+    level->draw(program, playerView, saturation);
 
     for(int i = 0; i < coins.size(); ++i) {
-        coins[i]->draw(program, playerView, worldView); 
+        coins[i]->draw(program, playerView); 
     }
-    player->draw(program, playerView, worldView);
+    player->draw(program, playerView);
 }
 
 void GameState::EventUpdate(float elapsedTime) {
@@ -1057,10 +1074,14 @@ void GameState::Cleanup() {
         Mix_FreeChunk(hurtSound);
         hurtSound = nullptr;
     }
+    if (landSound != nullptr) {
+        Mix_FreeChunk(landSound);
+        landSound = nullptr;
+    }
 }
 
 void GameState::placeEntity(string type, int placeX, int placeY) {
-    cout << "Tryna place a : " << type << endl;
+    // cout << "Tryna place a : " << type << endl;
     if(type == "player") {
         player = new Entity("player", loadAGeorge(0, game));
         player->setPosition(placeX, placeY, 0.0f);
@@ -1169,10 +1190,10 @@ void GameState::parseFile(string filename) {
             readEntityData(infile); 
         }
     }
-    for(int i =0; i < worldMap.size(); ++i) {
-        for(int j =0; j < worldMap[0].size(); ++j) {
-                cout << worldMap[i][j] << " ";
-        } 
-    }
+    // for(int i =0; i < worldMap.size(); ++i) {
+    //     for(int j =0; j < worldMap[0].size(); ++j) {
+    //             cout << worldMap[i][j] << " ";
+    //     } 
+    // }
     cout << "Parse complete" << endl;
 }

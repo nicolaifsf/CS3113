@@ -10,6 +10,7 @@
 #include <iostream>
 #include "../MainMenu/MainMenu.h"
 #include "../GameOver/GameOver.h"
+#include "../Victory/Victory.h"
 #include <string>
 const std::string RESOURCE_FOLDER =  "NYUCodebase.app/Contents/Resources/";
 
@@ -41,7 +42,7 @@ void Game::presetup(std::string windowName, Vector3 windowDimensions) {
 }
 
 
-Game::Game() : mode(STATE_MENU) {
+Game::Game() : mode(STATE_MENU),gameState(nullptr) {
     Vector3 window(1080.0f, 720.0f, 1.0f);
     presetup("Jumper", window);
     // gameState = new GameState(this);
@@ -49,6 +50,7 @@ Game::Game() : mode(STATE_MENU) {
     menu = new MainMenu(this, fontSheet);
     // gameState->Setup();
     gameOver = new GameOver(this, fontSheet);
+    victory = new Victory(this, fontSheet);
 }
 
 
@@ -67,6 +69,10 @@ void Game::Update(float elapsed) {
             break;
         case STATE_QUIT:
             // quit();
+            break;
+        case GAME_OVER:
+            break;
+        case VICTORY:
             break;
         default:
             std::cerr<<"I don't know what to do with this mode: " << mode << std::endl;
@@ -93,6 +99,10 @@ void Game::Render(ShaderProgram& program) {
             break;
         case GAME_OVER:
             gameOver->Redraw(program);
+            break;
+        case VICTORY:
+            victory->Redraw(program);
+            break;
         default:
             std::cerr<<"I don't know what to do with this mode: " << mode << std::endl;
     }
@@ -114,6 +124,10 @@ void Game::PollInput(float elapsedTime) {
             break;
         case STATE_QUIT:
             // quit();
+            break;
+        case GAME_OVER:
+            break;
+        case VICTORY:
             break;
         default:
             std::cerr << "I don't know what to do with this mode: " << mode << std::endl;
@@ -138,6 +152,9 @@ void Game::EventInput(SDL_Event& event) {
             break;
         case GAME_OVER:
             gameOver->InputEventUpdate(event);
+            break;
+        case VICTORY:
+            victory->InputEventUpdate(event);
             break;
         default:
             std::cerr << "I don't know what to do with this mode: " << mode << std::endl;
@@ -180,6 +197,13 @@ void Game::setGameMode(GameMode mode) {
             }
             quit();
             break;
+        case VICTORY:
+            if(gameState != nullptr) {
+                gameState->Cleanup();
+                delete gameState;
+                gameState = nullptr;
+            }
+            break;
         default:
             std::cerr << "I don't know what to do with this mode: " << mode << std::endl;
     }
@@ -214,6 +238,11 @@ void Game::Cleanup() {
         gameOver->Cleanup();
         delete gameOver;
         gameOver = nullptr;
+    }
+    if(victory != nullptr) {
+        victory->Cleanup();
+        delete victory;
+        victory = nullptr;
     }
 }
 

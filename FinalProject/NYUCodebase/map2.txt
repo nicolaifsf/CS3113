@@ -55,3 +55,8 @@ location=4,29,1,1
 type=coin
 location=23,17,1,1
 
+[Object Layer]
+# coin
+type=coin
+location=21,30,1,1
+

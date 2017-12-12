@@ -86,7 +86,7 @@ public:
     // Set the SheetSprite associated with the entity
     void setSprite(SheetSprite newSprite);
     // Redraw the entity
-    void draw(ShaderProgram& program, Matrix playerView, Matrix worldView);
+    void draw(ShaderProgram& program, Matrix playerView);
     // update the entity
     void update();
     // Check for any collisions

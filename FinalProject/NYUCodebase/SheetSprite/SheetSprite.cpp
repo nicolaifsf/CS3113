@@ -21,6 +21,8 @@ void SheetSprite::Draw(ShaderProgram& program) {
         u, v+height,
         u+width, v+height
     };
+
+    program.SetSaturation(1.0f);
     
     float aspect = 1.0f;
     float vertices[] = {

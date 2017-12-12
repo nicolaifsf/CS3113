@@ -11,7 +11,7 @@ Tilemap::Tilemap(std::vector< std::vector<int> >& map, Texture* texture, int spr
     levelHeight = map.size();
 } 
 
-void Tilemap::draw(ShaderProgram& program, Matrix playerView, Matrix worldView) {
+void Tilemap::draw(ShaderProgram& program, Matrix playerView, float saturation) {
     Matrix modelView;
     modelView.Identity();
     glUseProgram(program.programID);
@@ -19,9 +19,9 @@ void Tilemap::draw(ShaderProgram& program, Matrix playerView, Matrix worldView) 
     modelView.Scale(1,1,1);
     modelView = modelView * playerView.Inverse();
 
-    // TODO:
-    modelView = modelView * worldView;
     program.SetModelviewMatrix(modelView);
+
+    program.SetSaturation(saturation);
 
     Matrix projectionMatrix;
     projectionMatrix.SetOrthoProjection(-8.875, 8.875, -5.0f, 5.0f, -1.0f, 1.0f);

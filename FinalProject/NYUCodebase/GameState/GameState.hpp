@@ -51,6 +51,7 @@ private:
     Mix_Chunk* jumpSound;
     Mix_Chunk* coinSound;
     Mix_Chunk* hurtSound;
+    Mix_Chunk* landSound;
     std::vector<Entity*> world;
     std::vector<Entity*> coins;
     Entity* player;
@@ -66,6 +67,8 @@ private:
     std::vector<std::vector<int>> readHeader(std::ifstream& stream) ;
 
     void parseFile(std::string filename) ;
+    
+    float saturation;
 };
 
 

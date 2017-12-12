@@ -30,6 +30,8 @@
 		B13263BF1FDC9B8F009E6919 /* map1.txt in Resources */ = {isa = PBXBuildFile; fileRef = B13263BE1FDC9B8F009E6919 /* map1.txt */; };
 		B13263C11FDE4840009E6919 /* map2.txt in Resources */ = {isa = PBXBuildFile; fileRef = B13263C01FDE4840009E6919 /* map2.txt */; };
 		B13263C31FDE5179009E6919 /* map3.txt in Resources */ = {isa = PBXBuildFile; fileRef = B13263C21FDE5179009E6919 /* map3.txt */; };
+		B13263C71FDF462F009E6919 /* Victory.cc in Sources */ = {isa = PBXBuildFile; fileRef = B13263C51FDF462F009E6919 /* Victory.cc */; };
+		B13263C91FE05C57009E6919 /* land.wav in Resources */ = {isa = PBXBuildFile; fileRef = B13263C81FE05C56009E6919 /* land.wav */; };
 		B133CADE1FD789FF0039ECA1 /* Tilemap.cc in Sources */ = {isa = PBXBuildFile; fileRef = B133CADA1FD789FF0039ECA1 /* Tilemap.cc */; };
 		B133CAE01FD8D8E90039ECA1 /* font1.png in Resources */ = {isa = PBXBuildFile; fileRef = B133CADF1FD8D8E90039ECA1 /* font1.png */; };
 		B1A66DA91F91B78C009CE834 /* TextUtility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B1A66DA71F91B78C009CE834 /* TextUtility.cpp */; };
@@ -78,6 +80,9 @@
 		B13263BE1FDC9B8F009E6919 /* map1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map1.txt; sourceTree = "<group>"; };
 		B13263C01FDE4840009E6919 /* map2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map2.txt; sourceTree = "<group>"; };
 		B13263C21FDE5179009E6919 /* map3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map3.txt; sourceTree = "<group>"; };
+		B13263C51FDF462F009E6919 /* Victory.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Victory.cc; sourceTree = "<group>"; };
+		B13263C61FDF462F009E6919 /* Victory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Victory.h; sourceTree = "<group>"; };
+		B13263C81FE05C56009E6919 /* land.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = land.wav; sourceTree = "<group>"; };
 		B133CADA1FD789FF0039ECA1 /* Tilemap.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tilemap.cc; sourceTree = "<group>"; };
 		B133CADB1FD789FF0039ECA1 /* Tilemap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tilemap.h; sourceTree = "<group>"; };
 		B133CADF1FD8D8E90039ECA1 /* font1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = font1.png; sourceTree = "<group>"; };
@@ -170,6 +175,7 @@
 		6D5A86B419AE5C710066C1FD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B13263C81FE05C56009E6919 /* land.wav */,
 				B13263C21FDE5179009E6919 /* map3.txt */,
 				B13263C01FDE4840009E6919 /* map2.txt */,
 				B13263BE1FDC9B8F009E6919 /* map1.txt */,
@@ -208,6 +214,7 @@
 		6D5A86E119AE5CAA0066C1FD /* Code */ = {
 			isa = PBXGroup;
 			children = (
+				B13263C41FDF462F009E6919 /* Victory */,
 				B11AEC161FD9033000D7FC58 /* GameOver */,
 				B133CAD71FD789FF0039ECA1 /* Tilemap */,
 				B1A66DC11F932BBA009CE834 /* MainMenu */,
@@ -238,6 +245,15 @@
 				B11AEC191FD9033000D7FC58 /* GameOver.h */,
 			);
 			path = GameOver;
+			sourceTree = "<group>";
+		};
+		B13263C41FDF462F009E6919 /* Victory */ = {
+			isa = PBXGroup;
+			children = (
+				B13263C51FDF462F009E6919 /* Victory.cc */,
+				B13263C61FDF462F009E6919 /* Victory.h */,
+			);
+			path = Victory;
 			sourceTree = "<group>";
 		};
 		B133CAD71FD789FF0039ECA1 /* Tilemap */ = {
@@ -389,6 +405,7 @@
 				6DEF23C41B96CC2600BCE792 /* vertex.glsl in Resources */,
 				B103C0331FC656C9009E949E /* coin.wav in Resources */,
 				B103C02F1FC651FC009E949E /* Broke.mp3 in Resources */,
+				B13263C91FE05C57009E6919 /* land.wav in Resources */,
 				B133CAE01FD8D8E90039ECA1 /* font1.png in Resources */,
 				6DC7076A1BA7273500225B7D /* vertex_textured.glsl in Resources */,
 			);
@@ -403,6 +420,7 @@
 			files = (
 				B11AEC1B1FD9033100D7FC58 /* GameOver.cc in Sources */,
 				B1A66DA91F91B78C009CE834 /* TextUtility.cpp in Sources */,
+				B13263C71FDF462F009E6919 /* Victory.cc in Sources */,
 				6DEF23C31B96CC2600BCE792 /* ShaderProgram.cpp in Sources */,
 				B1A66DBC1F9328F1009CE834 /* Game.cpp in Sources */,
 				B1A66DB71F931370009CE834 /* Entity.cpp in Sources */,
