@@ -51,8 +51,5 @@ void MainMenu::InputEventUpdate(SDL_Event& event) {
 }
 
 void MainMenu::Cleanup() {
-    // if(textTexture != nullptr) {
-    //     delete textTexture;
-    //     textTexture= nullptr;
-    // }
+
 }

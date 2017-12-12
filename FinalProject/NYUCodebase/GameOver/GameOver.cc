@@ -41,8 +41,4 @@ void GameOver::InputEventUpdate(SDL_Event& event) {
 }
 
 void GameOver::Cleanup() {
-    // if(textTexture != nullptr) {
-    //     delete textTexture;
-    //     textTexture= nullptr;
-    // }
 }

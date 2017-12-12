@@ -43,7 +43,6 @@ public:
 private:
     float screenShakeValue;
     bool playerJumped;
-    void Movement(Entity* entity, float elapsedTime);
     void EntityUpdate(Entity* entity, float elapsedTime);
     void generateWorldMap(int level);
     Game* game;

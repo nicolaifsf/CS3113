@@ -14,7 +14,7 @@
 
 int main(int argc, char *argv[])
 {
-	// Create our Game
+    // Create our Game
     Game* game = new Game();
     float lastFrameTicks = (float) SDL_GetTicks()/1000.0f;
     float elapsedTime = 0.0f;

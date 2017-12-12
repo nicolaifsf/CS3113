@@ -168,18 +168,14 @@ bool Entity::getCollidedRight() {
 }
 
 void Entity::setCollidedTop() {
-    // collidedTop = true;
     collidedTop = !collidedTop;
 }
 void Entity::setCollidedBot() {
-    // collidedBot = true;
     collidedBot = !collidedBot;
 }
 void Entity::setCollidedLeft() {
     collidedLeft = !collidedLeft;
-    // collidedLeft = true;
 }
 void Entity::setCollidedRight() {
-    // collidedRight = true;
     collidedRight = !collidedRight;
 }

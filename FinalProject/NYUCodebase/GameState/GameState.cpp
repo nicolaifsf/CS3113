@@ -51,54 +51,7 @@ int getWorldWidth(const vector<vector<int>>& worldMap) {
     return worldMap[0].size()-1;
 }
 
-vector<vector<int>> generateLevel2() {
-    const int LEVEL_HEIGHT = 16;
-    const int LEVEL_WIDTH = 16;
-    vector<vector<int>> world(LEVEL_HEIGHT, vector<int>(LEVEL_WIDTH, 0));
-    world = {{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-             {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-             {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-             {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-             {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-             {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {1,0,16,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {1,16,16,16,0,0,0,0,0,0,0,0,0,0,0,0},
-            {14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14}
-    };
-    
-    return world;
-}
-
-vector<vector<int>> generateLevel1() {
-    const int LEVEL_HEIGHT = 16;
-    const int LEVEL_WIDTH = 16;
-    vector<vector<int>> world(LEVEL_HEIGHT, vector<int>(LEVEL_WIDTH, 0)); 
-    for(int i = 1; i < getWorldWidth(world); ++i) {
-        int spriteIndex = rand()%MAX_GROUND;
-        // int spriteIndex = 1;
-        world[getWorldHeight(world)-1][i] = spriteIndex;
-    }
-    world[getWorldHeight(world)-1][3] = 0;
-    for(int i = 5; i < getWorldWidth(world); ++i) {
-        int spriteIndex = 1;
-        world[getWorldHeight(world)-2][i] = spriteIndex;
-    }
-    for(int i = 2; i > 0; --i) {
-        int spriteIndex = 1;
-        world[getWorldHeight(world)-2][i] = spriteIndex;
-    }
-    return world;
-}
-
 void GameState::generateWorldMap(int level) {
-    vector<vector<int>> world;
     switch(level) {
       case 1:
         parseFile("NYUCodebase.app/Contents/Resources/map1.txt");
@@ -145,27 +98,6 @@ SheetSprite loadAGeorge(int spriteIndex, Game* game) {
     return george;
 }
 
-Entity* placeGroundBlock(Game* game, const vector<vector<int>>& worldMap, int x, int y) {
-    Texture* groundTexture = game->LoadTexture("JnRTiles.png");
-    // int spriteIndex = rand()%15;
-    int spriteIndex = worldMap[x][y]-1;
-    int SPRITE_COUNT_X = 18;
-    int SPRITE_COUNT_Y = 1;
-    float u = (float)(spriteIndex % SPRITE_COUNT_X) / (float) SPRITE_COUNT_X;
-    float v = (float)(spriteIndex / SPRITE_COUNT_X) / (float) SPRITE_COUNT_Y;
-
-    float spriteWidth=1.0f/(float)SPRITE_COUNT_X;
-    float spriteHeight = 1.0f/(float)SPRITE_COUNT_Y;
-    SheetSprite groundSprite(groundTexture->getTextureID(), u, v, spriteWidth, spriteHeight, 1.0f);
-    Entity* groundEntity = new Entity("ground", groundSprite);
-    // groundEntity->setSize(.7f, .80f, 1.0f);
-    groundEntity->setSize(1.0f, 1.0f, 1.0f);
-    groundEntity->setScale(1.0f, 1.0f, 1.0f);
-    groundEntity->setPosition(x, y, 0.0f);
-    groundEntity->setStatic(true);
-    return groundEntity;
-}
-
 Entity* placeCoin(Game* game, float x, float y) {
     Texture* textureSheet= game->LoadTexture("JnRTiles.png");
     int spriteIndex = 17;
@@ -186,31 +118,6 @@ Entity* placeCoin(Game* game, float x, float y) {
     return coin;
 }
 
-// void createRandomPath(Game* game, vector<Entity*>& world, vector<Entity*>& coins, int startX, int startY,  int length) {
-//     int currX = startX;
-//     int currY = startY;
-//     for(int i = 0; i < length; ++i) {
-//         int randVal = rand()%7;
-//         if(randVal == 0 || randVal == 5) {
-//             world.push_back(placeGroundBlock(game, currX, currY));
-//         } else if (randVal == 1) {
-//             world.push_back(placeGroundBlock(game,currX, ++currY)); 
-//         } else if(randVal == 2) {
-//             world.push_back(placeGroundBlock(game,currX, --currY)); 
-//         } else if(randVal == 3) {
-//             world.push_back(placeGroundBlock(game,currX, --currY)); 
-//             world.push_back(placeGroundBlock(game,currX, --currY)); 
-//         } else if(randVal == 4) {
-//             world.push_back(placeGroundBlock(game,currX, ++currY)); 
-//             world.push_back(placeGroundBlock(game,currX, ++currY));        
-//         } else if (randVal == 6) {
-//             // place a coin above a single block 
-//             coins.push_back(placeCoin(game, currX, currY+1));
-//             world.push_back(placeGroundBlock(game, currX, currY));
-//         }
-//         ++currX;
-//     }
-// }
 
 void GameState::Setup(int levelSelect) {
     music = initializeMixer(); 
@@ -221,53 +128,14 @@ void GameState::Setup(int levelSelect) {
     landSound = Mix_LoadWAV("land.wav");
     srand(time(NULL)); 
     
-    // parseFile("NYUCodebase.app/Contents/Resources/map1.txt");
-    
-    // Player Entity
-
 
     generateWorldMap(levelSelect);
     
-    // player = new Entity("player", loadAGeorge(0, game));
-    // player->setPosition(5, -getWorldHeight(worldMap)+3, 0.0f);
-    // int x;
-    // int y;
-    // worldToTileCoordinates(3, 3, &x, &y);
-    // player->setScale(1.0f, 1.0f, 1.0f);
-    // player->setSize(0.4f, 0.8f, 1.0f);
-    // player->setAcceleration(0.0f, 0.0f, 0.0f);
-    // player->setVelocity(0.0f, 0.0f, 0.0f);
-    // player->setStatic(false);
-
 
     Texture* worldSheet = game->LoadTexture("JnRTiles.png");
-    int SPRITESX = 18;
-    int SPRITESY = 1;
-
+    const int SPRITESX = 18;
+    const int SPRITESY = 1;
     level = new Tilemap(worldMap, worldSheet, SPRITESX, SPRITESY, TILE_SIZE);
-
-    // coins.push_back(placeCoin(game, 8, -getWorldHeight(worldMap)+ 3));
-    // coins[0]->setAcceleration(-16.0f, coins[0]->getAcceleration().getY(), coins[0]->getAcceleration().getZ());
-    
-    // Ground
-    // world.push_back(placeGroundBlock(game, 0.0f, -3.0f));
-    // world.push_back(placeGroundBlock(game, 0.0f, -4.0f));
-    // world.push_back(placeGroundBlock(game, 1.0f, -5.0f));
-    // world.push_back(placeGroundBlock(game, 2.0f, -4.0f));
-    // world.push_back(placeGroundBlock(game, 3.0f, -4.0f));
-    // world.push_back(placeGroundBlock(game, -1.0f, -3.0f));
-    // world.push_back(placeGroundBlock(game, -1.0f, -2.0f));
-    // world.push_back(placeGroundBlock(game, -1.0f, -1.0f));
-    // world.push_back(placeGroundBlock(game, -1.0f, -0.0f));
-    // world.push_back(placeGroundBlock(game, -1.0f, 1.0f));
-    // for(int i = -500; i < 500; ++i) {
-    //     world.push_back(placeGroundBlock(game, -2.0f, i)); 
-    // }
-    // for(int i = -500; i < 500; ++i) {
-    //     world.push_back(placeGroundBlock(game, 204.0f, i));
-    // }
-    //
-    // createRandomPath(game, world, coins, 4.0f, -4.0f, 200);
 }
 
 float lerp(float v0, float v1, float t) {
@@ -407,51 +275,7 @@ float getHalfHeight(Entity* entity) {
     return entity->getSize().getY()/2;
 }
 
-void GameState::Movement(Entity* entity, float elapsedTime) {
-    // Go through and see if collision flag is checked
-    accelAndFrictToVelocity(entity, elapsedTime);
-    gravityToVelocity(entity, elapsedTime);
 
-
-    yAxisVelToPosition(entity, elapsedTime);
-    for(size_t i = 0; i < world.size(); ++i) {
-        if(entity->collide(world[i])) {
-            getCollisionsVertical(entity, world[i]);
-            resolveYCollision(entity, world[i]);
-            // set entity's Y velocity to 0
-            Vector3 entityVelocity = entity->getVelocity();
-            entity->setVelocity(entityVelocity.getX(), 0.0f, entityVelocity.getZ()); 
-            entity->setAcceleration(entity->getAcceleration().getX(), 0.0f, entity->getAcceleration().getZ());
-        } 
-    }
-    xAxisVelToPosition(entity, elapsedTime); 
-    for(size_t i = 0; i < world.size(); ++i) {
-        if(entity->collide(world[i])) {
-            getCollisionsHorizontal(entity, world[i]);
-            resolveXCollision(entity, world[i]);
-            Vector3 entityVelocity = entity->getVelocity();
-            entity->setVelocity(0.0f, entityVelocity.getY(), entityVelocity.getZ());
-            entity->setAcceleration(0.0f, entity->getAcceleration().getY(), entity->getAcceleration().getZ());
-
-        } 
-    }
-    
-    // Check if contacts with player
-    if (entity != player && entity->collide(player)) {
-        getCollisionsVertical(entity, player);
-        getCollisionsHorizontal(entity, player);
-    } 
-    
-    // Check if player contacted any coins
-    if(entity == player) {
-        for(size_t i = 0; i < coins.size(); ++i) {
-            if (entity->collide(coins[i])) {
-                getCollisionsVertical(entity, coins[i]);
-                getCollisionsHorizontal(entity, coins[i]);
-            } 
-        } 
-    }
-}
 
 void resolveBotCollisionWorldMap(Entity* entity, const vector<vector<int>>& worldMap) {
     int gridX, gridY;
@@ -467,7 +291,6 @@ void resolveBotCollisionWorldMap(Entity* entity, const vector<vector<int>>& worl
                              position.getZ());
         Vector3 entityVelocity = entity->getVelocity();
         entity->setVelocity(entityVelocity.getX(), 0.0f, entityVelocity.getZ()); 
-        // entity->setAcceleration(entity->getAcceleration().getX(), 0.0f, entity->getAcceleration().getZ());
     }
 }
 
@@ -510,81 +333,6 @@ void resolveRightCollisionWorldMap(Entity* entity, const vector<vector<int>>& wo
                         position.getZ());
 }
 
-
-void Move(Entity* entity, float elapsedTime, const vector<vector<int>>& worldMap) {
-    Vector3 position = entity->getPosition();
-
-    accelAndFrictToVelocity(entity, elapsedTime);
-    gravityToVelocity(entity, elapsedTime);
-    
-    yAxisVelToPosition(entity, elapsedTime);
-
-    // Handle Collision with ground
-    int entityBotX;
-    int entityBotY;
-    worldToTileCoordinates(position.getX(), 
-                           position.getY() - entity->getSize().getY()/2 - SMALL_PEN_RESOLVE_FACTOR, &entityBotX, &entityBotY);
-    // cout << worldMap[entityBotY][entityBotX] << endl;
-    if (worldMap[entityBotY][entityBotX] != 0) {
-        if(!entity->getCollidedBot()) {
-            entity->setCollidedBot();
-        }
-        resolveBotCollisionWorldMap(entity, worldMap);
-        // Vector3 entityVelocity = entity->getVelocity();
-        // entity->setVelocity(entityVelocity.getX(), 0.0f, entityVelocity.getZ()); 
-        // entity->setAcceleration(entity->getAcceleration().getX(), 0.0f, entity->getAcceleration().getZ());
-    }
-
-    // Handle Collision with top
-    int entityTopX;
-    int entityTopY;
-    worldToTileCoordinates(position.getX(),
-                           position.getY() + entity->getSize().getY()/2, &entityTopX, &entityTopY);
-    if(worldMap[entityTopY][entityTopX] != 0) {
-        entity->setCollidedTop();
-        resolveTopCollisionWorldMap(entity, worldMap);
-        Vector3 entityVelocity = entity->getVelocity();
-        entity->setVelocity(entityVelocity.getX(), 0.0f, entityVelocity.getZ()); 
-        entity->setAcceleration(entity->getAcceleration().getX(), 0.0f, entity->getAcceleration().getZ());
-    }
-
-
-    xAxisVelToPosition(entity, elapsedTime);
-
-    // Handle Collision with left
-    int entityLeftX;
-    int entityLeftY;
-    worldToTileCoordinates(position.getX() - entity->getSize().getX()/2,
-                           position.getY(), &entityLeftX, &entityLeftY);
-    if(worldMap[entityLeftY][entityLeftX] != 0 || entityLeftX <= 0) {
-        if(!entity->getCollidedLeft()) {
-            entity->setCollidedLeft();
-        }
-        resolveLeftCollisionWorldMap(entity, worldMap);
-
-        Vector3 entityVelocity = entity->getVelocity();
-        entity->setVelocity(0.0f, entityVelocity.getY(), entityVelocity.getZ());
-        entity->setAcceleration(0.0f, entity->getAcceleration().getY(), entity->getAcceleration().getZ());
-    }
-
-    int entityRightX, entityRightY;
-    worldToTileCoordinates(position.getX() + entity->getSize().getX()/2,
-                           position.getY(), &entityRightX, &entityRightY);
-    if(worldMap[entityRightY][entityRightX] != 0 || entityRightX > getWorldWidth(worldMap)) {
-        entity->setCollidedRight();
-        resolveRightCollisionWorldMap(entity, worldMap);
-
-        Vector3 entityVelocity = entity->getVelocity();
-
-        entity->setVelocity(0.0f, entityVelocity.getY(), entityVelocity.getZ());
-        entity->setAcceleration(0.0f, entity->getAcceleration().getY(), entity->getAcceleration().getZ());
-    }
-
-}
-
-// void manageBotCollision(entity)
-
-
 void GameState::EntityUpdate(Entity* entity, float elapsedTime) {
         Vector3 position;
         Vector3 eSize;
@@ -609,7 +357,6 @@ void GameState::EntityUpdate(Entity* entity, float elapsedTime) {
         velocity = entity->getVelocity();
         worldToTileCoordinates(position.getX(), 
                                position.getY() - eSize.getY()/2,
-                               // position.getY() - eSize.getY()/2 - SMALL_PEN_RESOLVE_FACTOR, 
                                &xBot, &yBot);
         if(yBot > getWorldHeight(worldMap) || worldMap[yBot][xBot] != 0) {
             entity->setCollidedBot(); 
@@ -719,16 +466,15 @@ void GameState::Update(float elapsedTime) {
 
     // make the tilemap look trippy
     static float tilesecs = 0.0f;
-    // saturation = mapValue(tilesecs, 0.0f, 1.0f, 0.0f, 1.0f); 
     saturation = mapValue(sin(tilesecs * 0.4f), 0.0f, 1.0f, 0.0f, 1.0f) ;
     tilesecs += elapsedTime;
-    // saturation = 1.0f; 
 
     for(size_t i = 0; i < coins.size(); ++i) {
         EntityUpdate(coins[i], elapsedTime);
         getCollisionsHorizontal(player, coins[i]);
         getCollisionsVertical(player, coins[i]);
         if (player->collide(coins[i])) {
+            Mix_PlayChannel(-1, landSound, 0);
             if(player->getCollidedBot() && coins[i]->getCollidedTop()) {
                 Mix_PlayChannel(-1, coinSound, 0);
                 delete coins[i];
@@ -767,7 +513,7 @@ void GameState::Update(float elapsedTime) {
         cout << "YOU WIN!" << endl;
         Cleanup();
         game->setGameMode(VICTORY);
-        glClearColor(255.0f, 255.0f, 255.0f, 0.0f);
+        glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         return;
     }
@@ -838,120 +584,6 @@ void GameState::Update(float elapsedTime) {
     player->setAcceleration(0.0f,0.0f,0.0f);
 }
 
-
-/*
-void OldUpdate(float elapsedTime) {
-    // Refresh
-    player->resetCollisionFlags();
-    for(size_t i = 0; i < coins.size(); ++i) {
-        coins[i]->resetCollisionFlags();
-    }
-    int xPlayerBot, yPlayerBot;
-    worldToTileCoordinates(player->getPosition().getX(),
-                           player->getPosition().getY() - player->getSize().getY()/2,
-                           &xPlayerBot, &yPlayerBot);
-    if(yPlayerBot > getWorldHeight(worldMap)) {
-        cout << "GAME OVER" << endl;
-        Cleanup();
-        game->setGameMode(GAME_OVER);
-        glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
-        return;
-    }
-
-    float yPos = player->getPosition().getY() - player->getSize().getY()/2 - SMALL_PEN_RESOLVE_FACTOR;
-    int tY, tX;
-    worldToTileCoordinates(player->getPosition().getX(), yPos, &tX, &tY);
-    // cout << "y : " << tY << endl;
-    if (worldMap[tY][tX] != 0) {
-        if (!player->getCollidedBot()) {
-            player->setCollidedBot(); 
-        }
-    }
-
-    if(coins.size() == 0) {
-        // cout << "YOU WIN!" << endl; 
-        glClearColor(255.0f, 255.0f, 255.0f,0.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
-    }
-
-
-    Move(player, elapsedTime, worldMap);
-    for(size_t i = 0; i < coins.size(); ++i) {
-        Move(coins[i], elapsedTime, worldMap);
-        // cout << "collided?" << boolalpha << coins[i]->getCollidedLeft() << endl;
-        getCollisionsHorizontal(player, coins[i]);
-        getCollisionsVertical(player, coins[i]);
-    }
-    // if (!player->isStatic()) {
-    //     Movement(player, elapsedTime);
-    // }
-
-    // Check for collision with coin
-    for(size_t i = 0; i < coins.size(); ++i) {
-        if(player->collide(coins[i])) {
-            if(player->getCollidedBot() && coins[i]->getCollidedTop()) {
-                Mix_PlayChannel(-1, coinSound, 0); 
-                delete coins[i];
-                coins[i] = nullptr;
-                coins.erase(coins.begin() + i);
-                continue;
-            }
-            // Player got hit by coin
-            if((player->getCollidedRight() || player->getCollidedLeft()) && (coins[i]->getCollidedLeft() || coins[i]->getCollidedRight())) {
-                Mix_PlayChannel(-1, hurtSound, 0);
-                player->setPosition(0.0f, 0.0f, 0.0f);
-            }
-        } 
-    }
-    // coins AI
-    // static float directX = -16.0f;
-    for(size_t i = 0; i < coins.size(); ++i) {
-        // Check if about to fall off platform
-        Vector3 coinPosition = coins[i]->getPosition();
-
-        int coinX, coinY;
-        worldToTileCoordinates(coinPosition.getX(), coinPosition.getY(), &coinX, &coinY);
-
-        int botXLeft;
-        int botYLeft;
-        worldToTileCoordinates(coinPosition.getX() - coins[i]->getSize().getX()/2 - SMALL_PEN_RESOLVE_FACTOR, 
-                               coinPosition.getY() - coins[i]->getSize().getY()/2 - SMALL_PEN_RESOLVE_FACTOR, 
-                               &botXLeft, &botYLeft);
-
-        int botXRight, botYRight;
-        worldToTileCoordinates(coinPosition.getX() + coins[i]->getSize().getX()/2 + SMALL_PEN_RESOLVE_FACTOR,
-                               coinPosition.getY() - coins[i]->getSize().getY()/2 - SMALL_PEN_RESOLVE_FACTOR,
-                               &botXRight, &botYRight);
-
-        int dirXLeft, dirYLeft;
-        worldToTileCoordinates(coinPosition.getX() - coins[i]->getSize().getX()/2 - SMALL_PEN_RESOLVE_FACTOR,
-                               coinPosition.getY(), 
-                               &dirXLeft, &dirYLeft);
-        
-        // Check if theres a gap or edge of world
-        // Check gap left
-        if((worldMap[botYLeft][botXLeft] == 0 || botYLeft < 0) && coins[i]->getCollidedBot() && coins[i]->getAcceleration().getX() < 0) {
-            coins[i]->setVelocity(0.0f, 0.0f, 0.0f);
-            coins[i]->setAcceleration(16.0f, coins[i]->getAcceleration().getY(), coins[i]->getAcceleration().getZ());
-        // Check gap right
-        } else if((worldMap[botYRight][botXRight] == 0 || botXRight > getWorldWidth(worldMap)) && coins[i]->getCollidedBot() && coins[i]->getAcceleration().getX() > 0) {
-            coins[i]->setVelocity(0.0f, 0.0f, 0.0f);
-            coins[i]->setAcceleration(-16.0f, coins[i]->getAcceleration().getY(), coins[i]->getAcceleration().getZ());
-        } 
-
-        // Check if colliding with wall
-       if(coins[i]->getCollidedLeft()) {
-            coins[i]->setAcceleration(16.0f, coins[i]->getAcceleration().getY(), coins[i]->getAcceleration().getZ()); 
-       } else if (coins[i]->getCollidedRight()) {
-            coins[i]->setAcceleration(-16.0f, coins[i]->getAcceleration().getY(), coins[i]->getAcceleration().getZ()); 
-       }
-    }
-    player->setAcceleration(0.0f, 0.0f, 0.0f);
-}
-*/
-
-
 void GameState::Redraw(ShaderProgram& program) {
     Matrix playerView;
     playerView.Identity();
@@ -1001,11 +633,9 @@ void GameState::InputEventUpdate(SDL_Event& event) {
     if (event.type == SDL_KEYDOWN) {
         // If player pushes space bar
         if (event.key.keysym.scancode == SDL_SCANCODE_SPACE) {
-            // if(player->getCollidedBot() && player->getAcceleration().getY() < 1.0f) {
             Vector3 playerPos = player->getPosition();
             int pX, pY;
             worldToTileCoordinates(playerPos.getX(), playerPos.getY()-player->getSize().getY()/2, &pX, &pY);
-            // if(worldMap[pY][pX] != 0) {
                          
             // JUMPED!
           if(player->getCollidedBot()) {
@@ -1013,7 +643,6 @@ void GameState::InputEventUpdate(SDL_Event& event) {
                 Vector3 playerAcceleration = player->getAcceleration();
                 Vector3 playerVelocity = player->getVelocity();
                 player->setAcceleration(playerAcceleration.getX(), 500.0f, playerAcceleration.getZ());
-                // player->setVelocity(playerVelocity.getX(), 1000.0f, playerVelocity.getZ());
                 Mix_PlayChannel(-1, jumpSound, 0);
             } 
         } else if (event.key.keysym.scancode == SDL_SCANCODE_ESCAPE) {
@@ -1024,10 +653,7 @@ void GameState::InputEventUpdate(SDL_Event& event) {
         }
     }
     if (event.type == SDL_KEYUP) {
-        // if(event.key.keysym.scancode == SDL_SCANCODE_SPACE) {
-        //     Vector3 playerAcceleration = player->getAcceleration();
-        //     player->setAcceleration(playerAcceleration.getX(), 0.0f, playerAcceleration.getZ());
-        // }
+
         if(event.key.keysym.scancode == SDL_SCANCODE_LEFT) {
             player->setSprite(loadAGeorge(1, game));
             Vector3 playerAcceleration = player->getAcceleration();
@@ -1081,7 +707,6 @@ void GameState::Cleanup() {
 }
 
 void GameState::placeEntity(string type, int placeX, int placeY) {
-    // cout << "Tryna place a : " << type << endl;
     if(type == "player") {
         player = new Entity("player", loadAGeorge(0, game));
         player->setPosition(placeX, placeY, 0.0f);
@@ -1190,10 +815,4 @@ void GameState::parseFile(string filename) {
             readEntityData(infile); 
         }
     }
-    // for(int i =0; i < worldMap.size(); ++i) {
-    //     for(int j =0; j < worldMap[0].size(); ++j) {
-    //             cout << worldMap[i][j] << " ";
-    //     } 
-    // }
-    cout << "Parse complete" << endl;
 }

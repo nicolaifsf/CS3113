@@ -45,10 +45,8 @@ void Game::presetup(std::string windowName, Vector3 windowDimensions) {
 Game::Game() : mode(STATE_MENU),gameState(nullptr) {
     Vector3 window(1080.0f, 720.0f, 1.0f);
     presetup("Jumper", window);
-    // gameState = new GameState(this);
     Texture* fontSheet = LoadTexture("font1.png");
     menu = new MainMenu(this, fontSheet);
-    // gameState->Setup();
     gameOver = new GameOver(this, fontSheet);
     victory = new Victory(this, fontSheet);
 }
@@ -68,7 +66,6 @@ void Game::Update(float elapsed) {
             gameState->Update(elapsed);
             break;
         case STATE_QUIT:
-            // quit();
             break;
         case GAME_OVER:
             break;
@@ -95,7 +92,6 @@ void Game::Render(ShaderProgram& program) {
             gameState->Redraw(program);
             break;
         case STATE_QUIT:
-            // quit();
             break;
         case GAME_OVER:
             gameOver->Redraw(program);
@@ -148,7 +144,6 @@ void Game::EventInput(SDL_Event& event) {
             gameState->InputEventUpdate(event);
             break;
         case STATE_QUIT:
-            // quit();
             break;
         case GAME_OVER:
             gameOver->InputEventUpdate(event);

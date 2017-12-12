@@ -41,8 +41,4 @@ void Victory::InputEventUpdate(SDL_Event& event) {
 }
 
 void Victory::Cleanup() {
-    // if(textTexture != nullptr) {
-    //     delete textTexture;
-    //     textTexture= nullptr;
-    // }
 }
