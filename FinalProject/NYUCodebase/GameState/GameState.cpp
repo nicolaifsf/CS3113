@@ -71,7 +71,7 @@ void worldToTileCoordinates(float worldX, float worldY, int* gridX, int* gridY) 
 }
 
 Mix_Music* initializeMixer() {
-    Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096);
+    // Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096);
     Mix_Music* music = Mix_LoadMUS("Broke.mp3");
     return music;
 }
@@ -456,7 +456,7 @@ void GameState::Update(float elapsedTime) {
             Mix_PlayChannel(-1, landSound, 0);
             landsoundplayed=true;
         }
-        if (secspassed >= .2f) {
+        if (secspassed >= .05f) {
             secspassed = 0.0f;
             playerJumped = false;
             landsoundplayed=false;
@@ -474,7 +474,7 @@ void GameState::Update(float elapsedTime) {
         getCollisionsHorizontal(player, coins[i]);
         getCollisionsVertical(player, coins[i]);
         if (player->collide(coins[i])) {
-            Mix_PlayChannel(-1, landSound, 0);
+            // Mix_PlayChannel(-1, landSound, 0);
             if(player->getCollidedBot() && coins[i]->getCollidedTop()) {
                 Mix_PlayChannel(-1, coinSound, 0);
                 delete coins[i];
@@ -704,6 +704,7 @@ void GameState::Cleanup() {
         Mix_FreeChunk(landSound);
         landSound = nullptr;
     }
+    // Mix_CloseAudio();
 }
 
 void GameState::placeEntity(string type, int placeX, int placeY) {

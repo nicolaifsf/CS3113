@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include<unordered_map>
 #include<string>
+#include <SDL_Mixer.h>
 #include "../SheetSprite/SheetSprite.hpp"
 #include "../Texture/Texture.hpp"
 #include "../GameState/GameState.hpp"
@@ -55,5 +56,7 @@ private:
     Vector3 windowDimensions;
     GameOver* gameOver;
     Victory* victory;
+    Mix_Music* gameOverMusic;
+    Mix_Music* victoryMusic;
 };
 #endif /* Game_hpp */

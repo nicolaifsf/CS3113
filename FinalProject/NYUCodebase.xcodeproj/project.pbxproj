@@ -32,6 +32,7 @@
 		B13263C31FDE5179009E6919 /* map3.txt in Resources */ = {isa = PBXBuildFile; fileRef = B13263C21FDE5179009E6919 /* map3.txt */; };
 		B13263C71FDF462F009E6919 /* Victory.cc in Sources */ = {isa = PBXBuildFile; fileRef = B13263C51FDF462F009E6919 /* Victory.cc */; };
 		B13263C91FE05C57009E6919 /* land.wav in Resources */ = {isa = PBXBuildFile; fileRef = B13263C81FE05C56009E6919 /* land.wav */; };
+		B13263CB1FE0CA70009E6919 /* sad.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B13263CA1FE0CA70009E6919 /* sad.mp3 */; };
 		B133CADE1FD789FF0039ECA1 /* Tilemap.cc in Sources */ = {isa = PBXBuildFile; fileRef = B133CADA1FD789FF0039ECA1 /* Tilemap.cc */; };
 		B133CAE01FD8D8E90039ECA1 /* font1.png in Resources */ = {isa = PBXBuildFile; fileRef = B133CADF1FD8D8E90039ECA1 /* font1.png */; };
 		B1A66DA91F91B78C009CE834 /* TextUtility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B1A66DA71F91B78C009CE834 /* TextUtility.cpp */; };
@@ -41,6 +42,7 @@
 		B1A66DBC1F9328F1009CE834 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B1A66DBA1F9328F1009CE834 /* Game.cpp */; };
 		B1A66DC01F9329D9009CE834 /* GameState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B1A66DBE1F9329D9009CE834 /* GameState.cpp */; };
 		B1A66DC41F932BC9009CE834 /* MainMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B1A66DC21F932BC9009CE834 /* MainMenu.cpp */; };
+		B1DC677F1FE0D163006295C2 /* yay.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B1DC677E1FE0D163006295C2 /* yay.mp3 */; };
 		B1E963B71F798B3700CB7BAF /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B1E963B51F798B3700CB7BAF /* Texture.cpp */; };
 		B1FBB0801FAE37700083197A /* JnRTiles.png in Resources */ = {isa = PBXBuildFile; fileRef = B1FBB07F1FAE37700083197A /* JnRTiles.png */; };
 		B1FBB0821FAE42A40083197A /* george_0.png in Resources */ = {isa = PBXBuildFile; fileRef = B1FBB0811FAE42A40083197A /* george_0.png */; };
@@ -83,6 +85,7 @@
 		B13263C51FDF462F009E6919 /* Victory.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Victory.cc; sourceTree = "<group>"; };
 		B13263C61FDF462F009E6919 /* Victory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Victory.h; sourceTree = "<group>"; };
 		B13263C81FE05C56009E6919 /* land.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = land.wav; sourceTree = "<group>"; };
+		B13263CA1FE0CA70009E6919 /* sad.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sad.mp3; sourceTree = "<group>"; };
 		B133CADA1FD789FF0039ECA1 /* Tilemap.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tilemap.cc; sourceTree = "<group>"; };
 		B133CADB1FD789FF0039ECA1 /* Tilemap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tilemap.h; sourceTree = "<group>"; };
 		B133CADF1FD8D8E90039ECA1 /* font1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = font1.png; sourceTree = "<group>"; };
@@ -100,6 +103,7 @@
 		B1A66DBF1F9329D9009CE834 /* GameState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameState.hpp; sourceTree = "<group>"; };
 		B1A66DC21F932BC9009CE834 /* MainMenu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenu.cpp; sourceTree = "<group>"; };
 		B1A66DC31F932BC9009CE834 /* MainMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
+		B1DC677E1FE0D163006295C2 /* yay.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = yay.mp3; sourceTree = "<group>"; };
 		B1E963B51F798B3700CB7BAF /* Texture.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
 		B1E963B61F798B3700CB7BAF /* Texture.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Texture.hpp; sourceTree = "<group>"; };
 		B1FBB07F1FAE37700083197A /* JnRTiles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JnRTiles.png; sourceTree = "<group>"; };
@@ -175,6 +179,8 @@
 		6D5A86B419AE5C710066C1FD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B1DC677E1FE0D163006295C2 /* yay.mp3 */,
+				B13263CA1FE0CA70009E6919 /* sad.mp3 */,
 				B13263C81FE05C56009E6919 /* land.wav */,
 				B13263C21FDE5179009E6919 /* map3.txt */,
 				B13263C01FDE4840009E6919 /* map2.txt */,
@@ -402,6 +408,8 @@
 				6D5A86C619AE5C710066C1FD /* Images.xcassets in Resources */,
 				B103C0351FC657E8009E949E /* hurt.wav in Resources */,
 				6D5A86BE19AE5C710066C1FD /* Credits.rtf in Resources */,
+				B1DC677F1FE0D163006295C2 /* yay.mp3 in Resources */,
+				B13263CB1FE0CA70009E6919 /* sad.mp3 in Resources */,
 				6DEF23C41B96CC2600BCE792 /* vertex.glsl in Resources */,
 				B103C0331FC656C9009E949E /* coin.wav in Resources */,
 				B103C02F1FC651FC009E949E /* Broke.mp3 in Resources */,

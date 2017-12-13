@@ -11,14 +11,15 @@
 #include "../Game/Game.hpp"
 #include<iostream>
 
-GameOver::GameOver(Game* game, Texture* texture) : game(game), textTexture(texture){}
+GameOver::GameOver(Game* game, Texture* texture) : game(game), textTexture(texture){
+}
 
 GameOver::~GameOver(){
     Cleanup();
 }
 
 void GameOver::Update(float elapsedTime) {
-    
+
 }
 
 void GameOver::Redraw(ShaderProgram& program) {

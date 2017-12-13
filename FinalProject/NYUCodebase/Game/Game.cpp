@@ -12,6 +12,8 @@
 #include "../GameOver/GameOver.h"
 #include "../Victory/Victory.h"
 #include <string>
+#include <SDL_Mixer.h>
+
 const std::string RESOURCE_FOLDER =  "NYUCodebase.app/Contents/Resources/";
 
 void quit() {
@@ -49,6 +51,10 @@ Game::Game() : mode(STATE_MENU),gameState(nullptr) {
     menu = new MainMenu(this, fontSheet);
     gameOver = new GameOver(this, fontSheet);
     victory = new Victory(this, fontSheet);
+    
+    Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096);
+    gameOverMusic = Mix_LoadMUS("sad.mp3");
+    victoryMusic = Mix_LoadMUS("yay.mp3");
 }
 
 
@@ -183,6 +189,7 @@ void Game::setGameMode(GameMode mode) {
                 delete gameState;
                 gameState = nullptr;
             }
+            Mix_PlayMusic(gameOverMusic, 1);
             break;
         case STATE_QUIT:
             if(gameState != nullptr) {
@@ -198,6 +205,7 @@ void Game::setGameMode(GameMode mode) {
                 delete gameState;
                 gameState = nullptr;
             }
+            Mix_PlayMusic(victoryMusic, 1);
             break;
         default:
             std::cerr << "I don't know what to do with this mode: " << mode << std::endl;
@@ -239,6 +247,15 @@ void Game::Cleanup() {
         delete victory;
         victory = nullptr;
     }
+    if(gameOverMusic != nullptr) {
+        Mix_FreeMusic(gameOverMusic);
+        gameOverMusic = nullptr;
+    }
+    if(victoryMusic != nullptr) {
+        Mix_FreeMusic(victoryMusic);
+        victoryMusic = nullptr;
+    }
+    Mix_CloseAudio();
 }
 
 
