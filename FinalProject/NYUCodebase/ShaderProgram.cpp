@@ -26,7 +26,7 @@ ShaderProgram::ShaderProgram(const char *vertexShaderFile, const char *fragmentS
     positionAttribute = glGetAttribLocation(programID, "position");
     texCoordAttribute = glGetAttribLocation(programID, "texCoord");
     
-    saturationAttribute = glGetUniformLocation(programID, "saturationAmount");
+    saturationUniform = glGetUniformLocation(programID, "saturationAmount");
 }
 
 ShaderProgram::~ShaderProgram() {
@@ -93,5 +93,5 @@ void ShaderProgram::SetProjectionMatrix(const Matrix &matrix) {
 
 void ShaderProgram::SetSaturation(float saturation) {
     glUseProgram(programID);
-    glUniform1f(saturationAttribute, saturation);
+    glUniform1f(saturationUniform, saturation);
 }

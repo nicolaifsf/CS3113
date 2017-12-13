@@ -34,5 +34,5 @@ class ShaderProgram {
         GLuint vertexShader;
         GLuint fragmentShader;
 
-        GLuint saturationAttribute;
+        GLuint saturationUniform;
 };
