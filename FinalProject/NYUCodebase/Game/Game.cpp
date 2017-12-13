@@ -24,6 +24,7 @@ void quit() {
 
 Game::~Game() {
     Cleanup();
+
 }
 
 
@@ -241,6 +242,10 @@ void Game::Cleanup() {
         gameOver->Cleanup();
         delete gameOver;
         gameOver = nullptr;
+    }
+    if(menu != nullptr) {
+        delete menu; 
+        menu=nullptr;
     }
     if(victory != nullptr) {
         victory->Cleanup();

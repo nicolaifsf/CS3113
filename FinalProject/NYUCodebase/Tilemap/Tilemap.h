@@ -18,7 +18,7 @@ private:
     int spriteCountX;
     int spriteCountY;
     float tileSize;
-    std::vector< std::vector<int> >& worldMap;
+    std::vector< std::vector<int> > worldMap;
     std::vector<float> vertexData;
     std::vector<float> texCoordData;
     Texture* texture;
